@@ -2,6 +2,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "types": [], /* Mark added this line of code, resolved problem with this script!*/
     "noImplicitAny": false,
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
