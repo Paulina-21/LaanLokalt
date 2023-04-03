@@ -1,0 +1,7 @@
+{
+  "name": "LaanLokalt",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
