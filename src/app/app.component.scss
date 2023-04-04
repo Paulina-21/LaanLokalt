@@ -1,17 +1,40 @@
+ion-header {
+  --background: var(--ll-green);
+}
+
+ion-header ion-toolbar {
+  --background: var(--ll-green);
+  --border-style: none;
+}
 
 ion-menu ion-content {
-  --background: var(--ion-item-background, var(--ion-background-color, #57C566));
+  --background: var(--ll-green);
+}
+
+ion-menu ion-list {
+  background-color: var(--ll-green);
+}
+
+ion-menu ion-list ion-item {
+  --background: var(--ll-green);
+}
+
+// md - material design - android
+
+ion-header.md::after {
+  width: 0px !important;
 }
 
 ion-menu.md ion-content {
   --padding-start: 8px;
   --padding-end: 8px;
-  --padding-top: 20px;
+  //--padding-top: 20px;
   --padding-bottom: 20px;
 }
 
 ion-menu.md ion-list {
   padding: 20px 0;
+  --background: var(--ll-green);
 }
 
 ion-menu.md ion-note {
@@ -23,33 +46,23 @@ ion-menu.md ion-note {
   padding-left: 10px;
 }
 
-ion-menu.md ion-list#inbox-list {
-  border-bottom: 1px solid var(--ion-color-step-150, #57C566);
-  background-color:#57C566;
+ion-menu.md ion-list#menu-list {
+  border-bottom: 1px solid var(--ion-color-step-150,  var(--ll-green));
+  --background: var(--ll-green);
 }
 
-ion-menu.md ion-list#inbox-list ion-list-header {
+ion-menu.md ion-list#menu-list ion-list-header {
   font-size: 22px;
   font-weight: 600;
-
   min-height: 20px;
-  
-}
-
-ion-menu.md ion-list#labels-list ion-list-header {
-  font-size: 16px;
-
-  margin-bottom: 18px;
-
-  color: #515050;
-
-  min-height: 26px;
+  --background: var(--ll-green);
 }
 
 ion-menu.md ion-item {
   --padding-start: 10px;
   --padding-end: 10px;
   border-radius: 4px;
+  background-color: var(--ll-green);
 }
 
 ion-menu.md ion-item.selected {
@@ -68,23 +81,29 @@ ion-menu.md ion-item ion-label {
   font-weight: 500;
 }
 
+// iOS
+
 ion-menu.ios ion-content {
   --padding-bottom: 20px;
+  --background: var(--ll-green);
 }
 
 ion-menu.ios ion-list {
   padding: 20px 0 0 0;
+  --background: var(--ll-green);
 }
 
 ion-menu.ios ion-note {
   line-height: 24px;
   margin-bottom: 20px;
+  --background: var(--ll-green);
 }
 
 ion-menu.ios ion-item {
   --padding-start: 16px;
   --padding-end: 16px;
   --min-height: 50px;
+  --background: var(--ll-green);
 }
 
 ion-menu.ios ion-item.selected ion-icon {
@@ -94,10 +113,6 @@ ion-menu.ios ion-item.selected ion-icon {
 ion-menu.ios ion-item ion-icon {
   font-size: 24px;
   color: #7f717daf;
-}
-
-ion-menu.ios ion-list#labels-list ion-list-header {
-  margin-bottom: 8px;
 }
 
 ion-menu.ios ion-list-header,

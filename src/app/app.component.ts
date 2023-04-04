@@ -20,6 +20,6 @@ export class AppComponent {
     { title: 'Spørgsmål', url: '/question', icon: 'help-circle' },
     { title: 'Indstillinger', url: '/settings', icon: 'settings' },
   ];
-  public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
+  
   constructor() {}
 }
