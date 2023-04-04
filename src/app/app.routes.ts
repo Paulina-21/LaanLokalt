@@ -5,15 +5,10 @@ export const routes: Routes = [
   {
 
     path: '',
-    redirectTo: 'folder/food',
+    redirectTo: '/food',
     pathMatch: 'full',
   },
-  {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full',
-  },
-  {
+    {
     path: 'food',
     loadComponent: () => import('./pages/food/food.page').then( m => m.FoodPage)
   },
