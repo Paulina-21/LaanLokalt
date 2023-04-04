@@ -2,27 +2,24 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
+    path: 'home',
+    loadComponent: () => import('./home/home.page').then((m) => m.HomePage),
+  },
+  {
     path: '',
-    redirectTo: 'folder/inbox',
+    redirectTo: 'home',
     pathMatch: 'full',
   },
   {
-    path: 'folder/:id',
-    loadComponent: () =>
-      import('./folder/folder.page').then((m) => m.FolderPage),
-  },
-  {
     path: 'food',
-    loadComponent: () => import('./pages/food/food.page').then(m => m.FoodPage)
-  },
-
-  {
-    path: 'resources',
-    loadComponent: () => import('./pages/resources/resources.page').then(m => m.ResourcesPage)
+    loadComponent: () => import('./pages/food/food.page').then( m => m.FoodPage)
   },
   {
     path: 'pets-and-plants',
-    loadComponent: () => import('./pages/pets-and-plants/pets-and-plants.page').then(m => m.PetsAndPlantsPage)
+    loadComponent: () => import('./pages/pets-and-plants/pets-and-plants.page').then( m => m.PetsAndPlantsPage)
   },
-
+  {
+    path: 'resources',
+    loadComponent: () => import('./pages/resources/resources.page').then( m => m.ResourcesPage)
+  },
 ];
