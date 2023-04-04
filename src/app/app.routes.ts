@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { ItemComponent } from './components/item/item.component';
 
 export const routes: Routes = [
   {
@@ -22,4 +23,5 @@ export const routes: Routes = [
     path: 'resources',
     loadComponent: () => import('./pages/resources/resources.page').then( m => m.ResourcesPage)
   },
+  { path: 'item', component: ItemComponent },
 ];
