@@ -1,15 +1,15 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
   standalone: true,
-  imports: [IonicModule, RouterLink, RouterLinkActive, CommonModule],
+  imports: [IonicModule],
 })
 export class AppComponent {
+
   public appPages = [
     { title: 'Mad', url: '/food', icon: 'fast-food' },
     { title: 'Resourcer', url: '/tools', icon: 'hammer' },
