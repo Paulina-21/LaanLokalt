@@ -3,8 +3,9 @@ import { ItemComponent } from './components/item/item.component';
 
 export const routes: Routes = [
   {
+
     path: '',
-    redirectTo: 'folder/inbox',
+    redirectTo: '/food',
     pathMatch: 'full',
   },
   {
