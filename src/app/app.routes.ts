@@ -3,15 +3,12 @@ import { ItemComponent } from './components/item/item.component';
 
 export const routes: Routes = [
   {
-    path: 'home',
-    loadComponent: () => import('./home/home.page').then((m) => m.HomePage),
-  },
-  {
+
     path: '',
-    redirectTo: 'home',
+    redirectTo: '/food',
     pathMatch: 'full',
   },
-  {
+    {
     path: 'food',
     loadComponent: () => import('./pages/food/food.page').then( m => m.FoodPage)
   },
