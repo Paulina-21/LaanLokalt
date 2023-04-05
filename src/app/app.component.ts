@@ -13,13 +13,13 @@ export class AppComponent {
 
   public appPages = [
     { title: 'Mad', url: '/food', icon: 'fast-food' },
-    { title: 'Resourcer', url: '/tools', icon: 'hammer' },
+    { title: 'Resourcer', url: '/resources', icon: 'hammer' },
     { title: 'Pasning af Planter og Dyr', url: '/petsandplants', icon: 'leaf' },
     { title: 'Chat', url: '/chat', icon: 'chatbubbles' },
     { title: 'Regler', url: '/rules', icon: 'book' },
     { title: 'Spørgsmål', url: '/question', icon: 'help-circle' },
     { title: 'Indstillinger', url: '/settings', icon: 'settings' },
   ];
-  public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
+  
   constructor() {}
 }
