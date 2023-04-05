@@ -6,6 +6,8 @@ import { IonicModule } from '@ionic/angular';
   selector: 'app-item',
   templateUrl: './item.component.html',
   styleUrls: ['./item.component.scss'],
+  standalone: true,
+  imports: [IonicModule]
 })
 export class ItemComponent implements OnInit {
 
