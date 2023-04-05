@@ -1,8 +1,19 @@
 <ion-app>
   <ion-split-pane contentId="main-content">
+
     <ion-menu contentId="main-content" type="overlay">
-      <ion-content>
-        <ion-list id="inbox-list">
+      <ion-content scrollY="false">
+        <ion-header>
+          <ion-toolbar>
+            <ion-buttons slot="start">
+              <ion-menu-button color="light">
+                <ion-icon name="close-outline" size="large"></ion-icon>
+              </ion-menu-button>
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-header>
+        
+        <ion-list id="menu-list">
           <ion-list-header>Lån Lokalt</ion-list-header>
           <ion-note>By MaNiPaKi</ion-note>
 
@@ -12,9 +23,11 @@
               <ion-label>{{ p.title }}</ion-label>
             </ion-item>
           </ion-menu-toggle>
+
         </ion-list>
       </ion-content>
     </ion-menu>
+
     <ion-router-outlet id="main-content"></ion-router-outlet>
   </ion-split-pane>
 </ion-app>
