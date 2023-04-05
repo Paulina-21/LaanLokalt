@@ -5,6 +5,11 @@
 :root {
   /** laan lokalt **/
   --ll-green: #57C566;
+  --ll-light-green: #e3ffe3;
+  --ll-dark-green: #1e4d24;
+
+  --ll-menu-item: var(--ll-dark-green);
+  --ll-menu-item-selected: var(--ll-light-green);
 
   /** primary **/
   --ion-color-primary: #3880ff;

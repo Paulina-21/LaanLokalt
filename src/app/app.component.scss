@@ -19,6 +19,20 @@ ion-menu ion-list ion-item {
   --background: var(--ll-green);
 }
 
+ion-item ion-label {
+  --color: var(--ll-menu-item);
+}
+
+#menu-list {
+  ion-header {
+    color: var(--ll-menu-item);
+  }
+
+  ion-note {
+    color: var(--ll-menu-item);
+  }
+}
+
 // md - material design - android
 
 ion-header.md::after {
@@ -67,6 +81,7 @@ ion-menu.md ion-item {
 
 ion-menu.md ion-item.selected {
   --background: rgba(var(--ion-color-primary-rgb), 0.14);
+  font-weight: 600;
 }
 
 ion-menu.md ion-item.selected ion-icon {
@@ -107,12 +122,20 @@ ion-menu.ios ion-item {
 }
 
 ion-menu.ios ion-item.selected ion-icon {
-  color: var(--ion-color-primary);
+  //color: var(--ion-color-primary);
+  color: var(--ll-menu-item-selected);
+}
+
+ion-menu.ios ion-item.selected ion-label {
+  //color: var(--ion-color-primary);
+  color: var(--ll-menu-item-selected);
+  font-weight: 600;
 }
 
 ion-menu.ios ion-item ion-icon {
   font-size: 24px;
-  color: #7f717daf;
+  //color: #7f717daf;
+  color: var(--ll-menu-item);
 }
 
 ion-menu.ios ion-list-header,
