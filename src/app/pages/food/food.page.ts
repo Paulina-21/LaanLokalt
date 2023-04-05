@@ -8,7 +8,7 @@ import { IonicModule } from '@ionic/angular';
   templateUrl: './food.page.html',
   styleUrls: ['./food.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule]
+  imports: [IonicModule, CommonModule, FormsModule],
 })
 export class FoodPage implements OnInit {
 
