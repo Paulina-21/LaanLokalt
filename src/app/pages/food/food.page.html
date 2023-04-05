@@ -10,4 +10,15 @@
       <ion-title size="large">food</ion-title>
     </ion-toolbar>
   </ion-header>
+  <ion-list>
+    <ion-item button detail="true" *ngFor="let item of itemList">
+      <ion-thumbnail slot="start">
+        <img alt="Silhouette of mountains" src="../../../assets/icon/{{item.Image}}" />
+      </ion-thumbnail>
+      <ion-label>
+        <h3>{{item.Title}}</h3>
+        <p>{{item.Description}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>

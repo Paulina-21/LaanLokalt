@@ -1,0 +1,17 @@
+{
+    "items":[
+        {
+            "ItemId": 1,
+            "Title": "Kartofler, 300g",
+            "Description": "I have some potatoes that I do not need. If there is someone that wants it just come and get it.",
+            "Image": "vegetable.png",
+            "CreatedDate": "2019-10-10T10:10:10.000Z",
+            "Type": 1,
+            "FilterTag": "offering",
+            "Address": "København, Niels Juels Gade 13",
+            "UserId": 1,
+            "Price": 0
+        }
+    ]
+    
+}
