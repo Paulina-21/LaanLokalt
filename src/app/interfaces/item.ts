@@ -6,7 +6,7 @@ export interface IItem {
   CreatedDate: Date
   Type: Type
   FilterTag: FilterTag
-  Adress: string
+  Address: string
   UserId: number
   Price: number
 }
