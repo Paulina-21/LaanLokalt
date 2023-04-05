@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
+import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { DatabaseService } from './../../services/database.service';
 import { IItem } from 'src/app/interfaces/item';
+import { RouteReuseStrategy } from '@angular/router';
 
 @Component({
   selector: 'app-food',
@@ -11,18 +12,18 @@ import { IItem } from 'src/app/interfaces/item';
   styleUrls: ['./food.page.scss'],
   standalone: true,
   imports: [IonicModule, CommonModule, FormsModule],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
 })
 
 export class FoodPage implements OnInit {
   constructor(
     private itemService: DatabaseService,
-  ) 
-  { }
+  ) { }
 
   ngOnInit() {
-    this.getItems();
+    //this.getItems();
   }
-  
+
   itemList: IItem[];
 
   getItems(): void {
