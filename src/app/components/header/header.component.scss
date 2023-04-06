@@ -1,0 +1,19 @@
+ion-header {
+  --background: var(--ll-green);
+
+  ion-toolbar {
+    --background: var(--ll-green);
+  }
+
+  ion-title {
+    color: var(--ll-light-green);
+  }
+
+  ion-menu-button {
+    color: var(--ll-light-green);
+  }
+
+  ion-icon {
+    color: var(--ll-light-green);
+  }
+}

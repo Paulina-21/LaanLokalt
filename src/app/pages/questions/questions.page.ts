@@ -5,14 +5,15 @@ import { IonicModule } from '@ionic/angular';
 import { HeaderComponent } from 'src/app/components/header/header.component';
 
 @Component({
-  selector: 'app-food',
-  templateUrl: './food.page.html',
-  styleUrls: ['./food.page.scss'],
+  selector: 'app-questions',
+  templateUrl: './questions.page.html',
+  styleUrls: ['./questions.page.scss'],
   standalone: true,
   imports: [IonicModule, CommonModule, FormsModule, HeaderComponent]
 })
-export class FoodPage implements OnInit {
+export class QuestionsPage implements OnInit {
 
+  
   constructor() { }
 
   ngOnInit() {
