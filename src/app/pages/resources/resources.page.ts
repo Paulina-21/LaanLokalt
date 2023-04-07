@@ -6,8 +6,8 @@ import { HeaderComponent } from 'src/app/components/header/header.component';
 
 @Component({
   selector: 'app-resources',
-  templateUrl: './resources.page.html',
-  styleUrls: ['./resources.page.scss'],
+  templateUrl: 'resources.page.html',
+  styleUrls: ['resources.page.scss'],
   standalone: true,
   imports: [IonicModule, CommonModule, FormsModule, HeaderComponent]
 })

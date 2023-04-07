@@ -9,8 +9,8 @@ import { HeaderComponent } from 'src/app/components/header/header.component';
 
 @Component({
   selector: 'app-food',
-  templateUrl: './food.page.html',
-  styleUrls: ['./food.page.scss'],
+  templateUrl: 'food.page.html',
+  styleUrls: ['food.page.scss'],
   standalone: true,
   imports: [IonicModule, CommonModule, FormsModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
