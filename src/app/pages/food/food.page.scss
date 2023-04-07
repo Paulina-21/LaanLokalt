@@ -1,0 +1,27 @@
+ion-header {
+  --background: var(--ll-green);
+
+  ion-toolbar {
+    --background: var(--ll-green);
+  }
+
+  ion-title {
+    color: #fff;
+  }
+
+  ion-menu-button {
+    color: #fff;
+  }
+
+  ion-icon {
+    color: #fff;
+  }
+}
+ion-fab-button {
+  --background: #57C566;
+  --background-activated: #87d361;
+  --background-hover: #a3e681;
+  --border-radius: 15px;
+  --box-shadow: 0px 1px 2px 0px rgba(0,0,0,.3), 0px 1px 3px 1px rgba(0,0,0,.15);
+  --color: black;
+}
