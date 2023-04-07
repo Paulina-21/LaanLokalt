@@ -5,6 +5,7 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { DatabaseService } from './../../services/database.service';
 import { IItem } from 'src/app/interfaces/item';
 import { RouteReuseStrategy } from '@angular/router';
+import { HeaderComponent } from 'src/app/components/header/header.component';
 
 @Component({
   selector: 'app-food',

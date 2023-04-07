@@ -10,5 +10,5 @@ import { HeaderComponent } from 'src/app/components/header/header.component';
   imports: [IonicModule, HeaderComponent],
 })
 export class HomePage {
-  constructor() {}
+  constructor() { }
 }

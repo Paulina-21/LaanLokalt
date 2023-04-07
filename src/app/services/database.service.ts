@@ -9,6 +9,6 @@ import { IItem } from '../interfaces/item';
 export class DatabaseService {
   constructor(private http: HttpClient) { }
   readJsonFile() {
-    return this.http.get<IItem[]>('/data/items.json'); 
-}
+    return this.http.get<IItem[]>('/data/items.json');
+  }
 }
