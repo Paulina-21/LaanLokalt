@@ -10,19 +10,18 @@ import { IItem } from 'src/app/interfaces/item';
   templateUrl: './food.page.html',
   styleUrls: ['./food.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule]
+  imports: [IonicModule, CommonModule, FormsModule, HeaderComponent]
 })
 
 export class FoodPage implements OnInit {
   constructor(
     private itemService: DatabaseService,
-  ) 
-  { }
+  ) { }
 
   ngOnInit() {
     this.getItems();
   }
-  
+
   itemList: IItem[];
 
   getItems(): void {
