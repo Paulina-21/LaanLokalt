@@ -5,14 +5,14 @@ import { IItem } from '../interfaces/item';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DatabaseService {
-  constructor(private http: HttpClient) { }
-  
-  
+  itemList: IItem[];
+  constructor(private http: HttpClient) {}
+
   readJsonFile() {
-    return this.http.get<IItem[]>('/assets/data/items.json'); 
+    return this.http.get<any[]>('/assets/data/items.json');
   }
   getData(): Observable<any> {
     return this.http.get<any>('/assets/data/items.json');
