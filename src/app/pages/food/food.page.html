@@ -19,7 +19,7 @@
   </ion-header>
 
   <ion-list>
-    <ion-item button detail="true" *ngFor="let item of itemList">
+    <ion-item button detail="true" *ngFor="let item of items$ |async">
       <ion-thumbnail slot="start">
         <img
           alt="Silhouette of mountains"

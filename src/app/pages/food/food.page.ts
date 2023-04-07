@@ -5,6 +5,7 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { DatabaseService } from './../../services/database.service';
 import { IItem } from 'src/app/interfaces/item';
 import { RouteReuseStrategy } from '@angular/router';
+import { Observable, map } from 'rxjs';
 
 @Component({
   selector: 'app-food',
@@ -15,17 +16,11 @@ import { RouteReuseStrategy } from '@angular/router';
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
 })
 export class FoodPage implements OnInit {
+  items$: Observable<any>;
+
   constructor(private itemService: DatabaseService) {}
 
   ngOnInit() {
-    this.getItems();
-  }
-
-  itemList: IItem[];
-
-  getItems(): void {
-    this.itemService
-      .readJsonFile()
-      .subscribe((items) => (this.itemList = items));
+    this.items$ = this.itemService.getData().pipe(map((data) => data.items));
   }
 }

@@ -11,6 +11,30 @@
             "Address": "København, Niels Juels Gade 13",
             "UserId": 1,
             "Price": 0
+        },
+        {
+            "ItemId": 2,
+            "Title": "Tomater, 100g",
+            "Description": "Jeg har nogle tomater til overs som jeg ikke kan spise.",
+            "Image": "vegetable.png",
+            "CreatedDate": "2019-10-10T10:12:10.000Z",
+            "Type": 1,
+            "FilterTag": "offering",
+            "Address": "København, Vestervoldgade 89",
+            "UserId": 2,
+            "Price": 0
+        },
+        {
+            "ItemId": 3,
+            "Title": "Rugbrød, 120g",
+            "Description": "Har rugbrød tilovers, kom og få det gratis.",
+            "Image": "bread.png",
+            "CreatedDate": "2019-10-10T10:10:10.000Z",
+            "Type": 1,
+            "FilterTag": "offering",
+            "Address": "København, Niels Juels Gade 13",
+            "UserId": 1,
+            "Price": 0
         }
     ]
     
