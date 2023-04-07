@@ -12,14 +12,16 @@ import { IonicModule } from '@ionic/angular';
 export class AppComponent {
 
   public appPages = [
+    { title: 'Start', url: '/home', icon: 'home' },
     { title: 'Mad', url: '/food', icon: 'fast-food' },
-    { title: 'Resourcer', url: '/tools', icon: 'hammer' },
+    { title: 'Resourcer', url: '/resources', icon: 'hammer' },
     { title: 'Pasning af Planter og Dyr', url: '/petsandplants', icon: 'leaf' },
     { title: 'Chat', url: '/chat', icon: 'chatbubbles' },
     { title: 'Regler', url: '/rules', icon: 'book' },
-    { title: 'Spørgsmål', url: '/question', icon: 'help-circle' },
+    { title: 'Spørgsmål', url: '/questions', icon: 'help-circle' },
     { title: 'Indstillinger', url: '/settings', icon: 'settings' },
+    { title: 'Om os', url: '/about', icon: 'information-circle' }
   ];
-  public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
+  
   constructor() {}
 }
