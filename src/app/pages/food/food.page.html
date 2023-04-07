@@ -2,9 +2,12 @@
 
 <ion-content [fullscreen]="true">
 
-  <ion-title size="large">food</ion-title>
-  </ion-toolbar>
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Mad</ion-title>
+    </ion-toolbar>
   </ion-header>
+
   <ion-list>
     <ion-item button detail="true" *ngFor="let item of itemList">
       <ion-thumbnail slot="start">
