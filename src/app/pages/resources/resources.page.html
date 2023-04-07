@@ -1,16 +1,4 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>Resources</ion-title>
-    <ion-buttons slot="end">
-      <ion-button>
-        <ion-icon slot="icon-only" name="search-outline"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
+<app-header pageTitle="Resourcer"></app-header>
 <ion-content>
   <ion-list>
     <ion-item button detail="true">
@@ -56,4 +44,11 @@
       </ion-label>
     </ion-item>
   </ion-list>
+  <ion-icon name='trash' trash style = 'color:blueviolet'>
+  </ion-icon>
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>
