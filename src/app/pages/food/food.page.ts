@@ -18,7 +18,7 @@ export class FoodPage implements OnInit {
   constructor(private itemService: DatabaseService) {}
 
   ngOnInit() {
-    //this.getItems();
+    this.getItems();
   }
 
   itemList: IItem[];
