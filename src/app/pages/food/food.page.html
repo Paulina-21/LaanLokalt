@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
@@ -6,10 +6,21 @@
     <ion-title>Mad</ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content [fullscreen]="true">
- 
+  <ion-header collapse="condense">
+    <ion-toolbar>
       <ion-title size="large">food</ion-title>
     </ion-toolbar>
   </ion-header>
+  <ion-list>
+    <ion-item button detail="true" *ngFor="let item of itemList">
+      <ion-thumbnail slot="start">
+        <img alt="Silhouette of mountains" src="../../../assets/icon/{{item.Image}}"/>
+      </ion-thumbnail>
+      <ion-label>
+        <h3>{{item.Title}}</h3>
+        <p>{{item.Description}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>

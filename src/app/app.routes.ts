@@ -8,7 +8,6 @@ export const routes: Routes = [
     pathMatch: 'full',
   },
   {
-  {
     path: 'food',
     loadComponent: () => import('./pages/food/food.page').then(m => m.FoodPage)
   },

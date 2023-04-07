@@ -1,6 +1,14 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>resources</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Resources</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" name="search-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -10,4 +18,95 @@
       <ion-title size="large">resources</ion-title>
     </ion-toolbar>
   </ion-header>
+  <ion-list>
+ <ion-item button detail="true">
+    
+  <ion-thumbnail slot="start">
+    
+    <img alt="Silhouette of mountains" src="../../../assets/icon/handcraft.png" />
+    
+   </ion-thumbnail>
+    
+   <ion-label>
+    
+     <h3>Sy tøj</h3>
+    
+     <p>Masser af sy tøj til over så just come and get it.</p>
+    
+     </ion-label>
+    
+   </ion-item>
+    
+    <ion-item button detail="true">
+    
+    <ion-thumbnail slot="start">
+    
+     <img alt="Silhouette of mountains" src="../../../assets/icon/wheelbarrow.png" />
+    
+    </ion-thumbnail>
+    
+    <ion-label>
+    
+ <h3>Trillebør, ukendt mærke</h3>
+    
+    <p maxlength="10">I have a wheelbarrow that anybody can use. Just remember so be carefull when using it because.I
+    
+    have a wheelbarrow that anybody can use. Just remember so be carefull when using it because.
+    
+   </p>
+    
+     </ion-label>
+    
+    </ion-item>
+    
+    <ion-item button detail="true">
+    
+     <ion-thumbnail slot="start">
+    
+     <img alt="Silhouette of mountains" src="../../../assets/icon/tools-and-utensils.png" />
+    
+     </ion-thumbnail>
+    
+     <ion-label>
+    
+    <h3>Sav, Ryobi</h3>
+    
+     <p maxlength="10">I have a saw that anybody can use. Just remember so be carefull when using it because.I
+    
+     have a saw that anybody can use. Just remember so be carefull when using it because.
+    
+   </p>
+    
+     </ion-label>
+    
+   </ion-item>
+    
+   <ion-item button detail="true">
+    
+   <ion-thumbnail slot="start">
+    
+   <img alt="Silhouette of mountains" src="../../../assets/icon/tools-and-utensils.png" />
+    
+   </ion-thumbnail>
+    
+ <ion-label>
+    
+     <h3>Hammer, Dyson</h3>
+    
+   <p maxlength="10">I have a hammer that anybody can use. Just remember so be carefull when using it because.I
+    
+ have a hammer that anybody can use. Just remember so be carefull when using it because.
+    
+  </p>
+    
+  </ion-label>
+    
+  </ion-item>
+    
+    
+    
+    
+    
+    
+   </ion-list>
 </ion-content>
