@@ -6,7 +6,7 @@ export interface IItem {
   CreatedDate: Date
   Type: Type
   FilterTag: FilterTag
-  Adress: string
+  Address: string
   UserId: number
   Price: number
 }
@@ -19,5 +19,6 @@ export enum FilterTag {
 export enum Type {
   food = 1,
   tool = 2,
-  service = 3
+  service = 3,
+  plantsAndAnimals = "plants-and-animals"
 }

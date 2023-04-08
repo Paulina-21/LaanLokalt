@@ -1,0 +1,101 @@
+{
+    "items":[
+        {
+            "ItemId": 1,
+            "Title": "Kartofler, 300g",
+            "Description": "I have some potatoes that I do not need. If there is someone that wants it just come and get it.",
+            "Image": "vegetable.png",
+            "CreatedDate": "2019-10-10T10:10:10.000Z",
+            "Type": 1,
+            "FilterTag": "offering",
+            "Address": "København, Niels Juels Gade 13",
+            "UserId": 1,
+            "Price": 0
+        },
+        {
+            "ItemId": 2,
+            "Title": "Tomater, 100g",
+            "Description": "Jeg har nogle tomater til overs som jeg ikke kan spise.",
+            "Image": "vegetable.png",
+            "CreatedDate": "2019-10-10T10:12:10.000Z",
+            "Type": 1,
+            "FilterTag": "offering",
+            "Address": "København, Vestervoldgade 89",
+            "UserId": 2,
+            "Price": 0
+        },
+        {
+            "ItemId": 3,
+            "Title": "Rugbrød, 120g",
+            "Description": "Har rugbrød tilovers, kom og få det gratis.",
+            "Image": "bread.png",
+            "CreatedDate": "2019-10-10T10:10:10.000Z",
+            "Type": 1,
+            "FilterTag": "offering",
+            "Address": "København, Niels Juels Gade 13",
+            "UserId": 1,
+            "Price": 0
+        },
+        {
+            "ItemId": 4,
+            "Title": "Bulldog Mason søger legekammerat",
+            "Description": "Mason søger nogen til at lege med ham.",
+            "Image": "../../../assets/icon/cat.png",
+            "CreatedDate": "2019-10-10T10:10:10.000Z",
+            "Type": "plants-and-animals",
+            "FilterTag": 2,
+            "Address": "København, Niels Juels Gade 13",
+            "UserId": 1,
+            "Price": 0
+        },
+        {
+            "ItemId": 5,
+            "Title": "Siameser kat",
+            "Description": "Misty søger passer i 10 dage.",
+            "Image": "../../../assets/icon/cat.png",
+            "CreatedDate": "2019-10-10T10:10:10.000Z",
+            "Type": "plants-and-animals",
+            "FilterTag": 2,
+            "Address": "København, Niels Juels Gade 13",
+            "UserId": 1,
+            "Price": 0
+        },
+        {
+            "ItemId": 6,
+            "Title": "Ørken Kaktus",
+            "Description": "Caktus søger en veninde til at vande den engang hver 3 måned.",
+            "Image": "../../../assets/icon/cat.png",
+            "CreatedDate": "2019-10-10T10:10:10.000Z",
+            "Type": "plants-and-animals",
+            "FilterTag": 2,
+            "Address": "København, Niels Juels Gade 13",
+            "UserId": 1,
+            "Price": 0
+        },
+        {
+            "ItemId": 7,
+            "Title": "Hænge Pil",
+            "Description": "I weep for someone to take good care of me. ",
+            "Image": "../../../assets/icon/cat.png",
+            "CreatedDate": "2019-10-10T10:10:10.000Z",
+            "Type": "plants-and-animals",
+            "FilterTag": 2,
+            "Address": "København, Niels Juels Gade 13",
+            "UserId": 2,
+            "Price": 0
+        },
+        {
+            "ItemId": 8,
+            "Title": "Passer gerne hunde",
+            "Description": "Jeg kan godt lide at passe hunde.",
+            "Image": "../../../assets/icon/cat.png",
+            "CreatedDate": "2019-10-10T10:10:10.000Z",
+            "Type": "plants-and-animals",
+            "FilterTag": 1,
+            "Address": "København, Niels Juels Gade 13",
+            "UserId": 1,
+            "Price": 0
+        }
+    ]
+    
+}
