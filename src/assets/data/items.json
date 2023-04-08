@@ -35,6 +35,66 @@
             "Address": "København, Niels Juels Gade 13",
             "UserId": 1,
             "Price": 0
+        },
+        {
+            "ItemId": 4,
+            "Title": "Bulldog Mason søger legekammerat",
+            "Description": "Mason søger nogen til at lege med ham.",
+            "Image": "../../../assets/icon/cat.png",
+            "CreatedDate": "2019-10-10T10:10:10.000Z",
+            "Type": "plants-and-animals",
+            "FilterTag": 2,
+            "Address": "København, Niels Juels Gade 13",
+            "UserId": 1,
+            "Price": 0
+        },
+        {
+            "ItemId": 5,
+            "Title": "Siameser kat",
+            "Description": "Misty søger passer i 10 dage.",
+            "Image": "../../../assets/icon/cat.png",
+            "CreatedDate": "2019-10-10T10:10:10.000Z",
+            "Type": "plants-and-animals",
+            "FilterTag": 2,
+            "Address": "København, Niels Juels Gade 13",
+            "UserId": 1,
+            "Price": 0
+        },
+        {
+            "ItemId": 6,
+            "Title": "Ørken Kaktus",
+            "Description": "Caktus søger en veninde til at vande den engang hver 3 måned.",
+            "Image": "../../../assets/icon/cat.png",
+            "CreatedDate": "2019-10-10T10:10:10.000Z",
+            "Type": "plants-and-animals",
+            "FilterTag": 2,
+            "Address": "København, Niels Juels Gade 13",
+            "UserId": 1,
+            "Price": 0
+        },
+        {
+            "ItemId": 7,
+            "Title": "Hænge Pil",
+            "Description": "I weep for someone to take good care of me. ",
+            "Image": "../../../assets/icon/cat.png",
+            "CreatedDate": "2019-10-10T10:10:10.000Z",
+            "Type": "plants-and-animals",
+            "FilterTag": 2,
+            "Address": "København, Niels Juels Gade 13",
+            "UserId": 1,
+            "Price": 0
+        },
+        {
+            "ItemId": 8,
+            "Title": "Passer gerne hunde",
+            "Description": "Jeg kan godt lide at passe hunde.",
+            "Image": "../../../assets/icon/cat.png",
+            "CreatedDate": "2019-10-10T10:10:10.000Z",
+            "Type": "plants-and-animals",
+            "FilterTag": 1,
+            "Address": "København, Niels Juels Gade 13",
+            "UserId": 1,
+            "Price": 0
         }
     ]
     

@@ -19,5 +19,6 @@ export enum FilterTag {
 export enum Type {
   food = 1,
   tool = 2,
-  service = 3
+  service = 3,
+  plantsAndAnimals = "plants-and-animals"
 }

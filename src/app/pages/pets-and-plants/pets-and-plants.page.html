@@ -2,7 +2,30 @@
 
 
 <ion-content>
+
+<ion-toolbar>
+  <ion-buttons slot="end">
+    <ion-button size="small">
+      Filter
+      <ion-icon slot="end" name="filter-outline"></ion-icon>
+    </ion-button>
+    
+  </ion-buttons>
+</ion-toolbar>
+
   <ion-list>
+    <ion-item button detail="true" *ngFor="let item of plantsAndAnimals">
+      <ion-thumbnail slot="start">
+        <img alt="Image of {{item.Title}}" src="{{item.Image}}" />
+      </ion-thumbnail>
+      <ion-label>
+        <h3>{{item.Title}}</h3>
+        <p>{{item.Description}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <!-- <ion-list>
     <ion-item button detail="true">
       <ion-thumbnail slot="start">
         <img alt="Silhouette of mountains" src="../../../assets/icon/cat.png" />
@@ -42,9 +65,11 @@
         </p>
       </ion-label>
     </ion-item>
-  </ion-list>
+  </ion-list> -->
+
   <ion-icon name='trash' trash style = 'color:blueviolet'>
   </ion-icon>
+
   <ion-fab slot="fixed" vertical="bottom" horizontal="end">
     <ion-fab-button>
       <ion-icon name="add"></ion-icon>
