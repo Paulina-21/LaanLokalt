@@ -31,11 +31,14 @@ ion-header {
   ion-item {
     --background: #57C566;
     --background-hover: #a3e681;
-    --border-radius: 15px;
+    border-radius: 15px;
     margin-inline-start: 20px;
     margin-inline-end: 20px;
     margin-top: 10px;
+
+    box-shadow: 1px 1px 6px -1px #aaaaaa;
   }
+
   
   
   
