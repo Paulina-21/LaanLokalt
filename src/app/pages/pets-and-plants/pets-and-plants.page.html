@@ -13,7 +13,7 @@
   </ion-toolbar>
 
   <ion-list>
-    <ion-item button detail="true" *ngFor="let item of plantsAndAnimals">
+    <ion-item button detail="true" *ngFor="let item of plantsAndAnimals" (click)="openDetails(item)">
       <ion-thumbnail slot="start">
         <img alt="Image of {{item.Title}}" src="{{item.Image}}" />
       </ion-thumbnail>

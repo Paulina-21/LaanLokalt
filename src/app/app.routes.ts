@@ -23,7 +23,7 @@ export const routes: Routes = [
     path: 'home',
     loadComponent: () => import('./pages/home/home.page').then(m => m.HomePage)
   },
-  { path: 'item', component: ItemComponent },
+  //{ path: 'item', component: ItemComponent },
   {
     path: 'chat',
     loadComponent: () => import('./pages/chat/chat.page').then(m => m.ChatPage)
@@ -43,6 +43,5 @@ export const routes: Routes = [
   {
     path: 'about',
     loadComponent: () => import('./pages/about/about.page').then(m => m.AboutPage)
-  },
-
-];
+  }
+]
