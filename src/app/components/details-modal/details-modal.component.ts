@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { IonicModule, ModalController } from '@ionic/angular';
 import { IItem } from 'src/app/interfaces/item';
+import { User } from 'src/app/interfaces/user';
 
 @Component({
   selector: 'app-details-modal',
@@ -12,10 +13,19 @@ import { IItem } from 'src/app/interfaces/item';
 export class DetailsModalComponent  implements OnInit {
 
   selectedItem : IItem;
+  user : User;
 
   constructor(private modalCtrl : ModalController) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.user = {
+      Id : 1,
+      Name : 'Hans Hansen',
+      PhoneNo: '1234567890' ,
+      HomeAddress: 'Hovedgade 1, 1111 Aarhus',
+      Image: 'https://i.pravatar.cc/150?u=hanshansen1@hotmail.com'
+    }
+  }
 
   closeModal(){
     return this.modalCtrl.dismiss(null, 'cancel');
