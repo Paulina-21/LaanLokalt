@@ -4,6 +4,7 @@ import { IonDatetime, IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { RouteReuseStrategy } from '@angular/router';
 import { DatabaseService } from 'src/app/services/database.service';
 import { DatePipe } from '@angular/common';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-item',
@@ -27,6 +28,7 @@ export class ItemComponent implements OnInit {
     UserId: 1,
     Price: 0,
   };
+  itemList: any;
 
   constructor(private itemService: DatabaseService) {}
 
@@ -36,6 +38,8 @@ export class ItemComponent implements OnInit {
 
   createItem() {
     this.itemService.createItem(this.newItem);
+    this.itemList = this.itemService.getData().pipe(map((data) => data.items));
     console.log(this.newItem);
+    console.log(this.itemList.subscribe);
   }
 }
