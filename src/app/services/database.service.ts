@@ -24,4 +24,12 @@ export class DatabaseService {
         map((items : IItem[])=>items.filter(item=>item.Type == Type.plantsAndAnimals))
       )
   }
+
+  getAllItemsForUser(userId : number) {
+    return this.http.get<any>(this.url)
+      .pipe(
+        map(response=>{return response.items}),
+        map((items : IItem[])=>items.filter(item=>item.UserId == userId))
+      )
+  }
 }
