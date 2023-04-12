@@ -6,13 +6,14 @@ import { DatabaseService } from './../../services/database.service';
 import { IItem } from 'src/app/interfaces/item';
 import { RouteReuseStrategy } from '@angular/router';
 import { Observable, map } from 'rxjs';
+import { ItemComponent } from 'src/app/components/item/item.component';
 
 @Component({
   selector: 'app-food',
   templateUrl: 'food.page.html',
   styleUrls: ['food.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule],
+  imports: [IonicModule, CommonModule, FormsModule, ItemComponent],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
 })
 export class FoodPage implements OnInit {
