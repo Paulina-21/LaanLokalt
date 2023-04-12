@@ -1,0 +1,124 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-button (click)="closeModal()">
+        <ion-icon name="close-outline" size="large"></ion-icon>
+        Close
+      </ion-button>
+    </ion-buttons>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <div id="image-wrapper">
+            <img [src]="selectedItem.Image">
+          </div>
+          
+          <ion-card-header>
+            <ion-card-title>
+              {{selectedItem.Title}}
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ul id="description-list">
+              <li>Description</li>
+              <li class="pb">
+                {{selectedItem.Description}}
+              </li>
+              <li>Location</li>
+              <li class="pb">
+                {{selectedItem.Address}}
+              </li>
+            </ul>      
+            <div id="button-wrapper">
+              <ion-button>
+                Contact
+              </ion-button>
+            </div> 
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-title>Posted by</ion-title>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <ion-card-content>
+          <ion-grid>
+            <ion-row>
+              <ion-col class="center-column" >
+                
+                  <img id="user-image" [src]="user.Image">
+                
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col class="ion-text-center">
+                <ion-card-title>
+                  {{user.Name}}
+                </ion-card-title>
+              </ion-col>
+            </ion-row>
+
+            <ion-row>
+              <ion-col>
+                Phone:
+              </ion-col>
+              <ion-col>
+                Address:
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                {{user.PhoneNo}}
+              </ion-col>
+              <ion-col>
+                {{user.HomeAddress}}
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col class="ion-text-center bold">
+                More from {{user.Name}}
+              </ion-col>
+            </ion-row>
+
+            <ion-row >
+              <ion-col>
+
+                <ion-item id="posting-item" button detail="true" *ngFor="let item of userItems">
+                  <ion-thumbnail slot="start">
+                    <img alt="Image of {{item.Title}}" src="{{item.Image}}" />
+                  </ion-thumbnail>
+                  <ion-label>
+                    <h3>{{item.Title}}</h3>
+                    <p>{{item.Description}}</p>
+                  </ion-label>
+                </ion-item>
+
+              </ion-col>
+            </ion-row>
+
+          </ion-grid>
+        </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+  
+
+  
+  
+
+</ion-content>
+

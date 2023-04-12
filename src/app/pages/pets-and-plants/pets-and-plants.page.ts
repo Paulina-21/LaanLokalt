@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonicModule, AlertController } from '@ionic/angular';
+import { IonicModule, AlertController, ModalController } from '@ionic/angular';
 import { HeaderComponent } from 'src/app/components/header/header.component';
 import { DatabaseService } from 'src/app/services/database.service';
 import { IItem } from 'src/app/interfaces/item';
 import { ItemComponent } from 'src/app/components/item/item.component';
+import { DetailsModalComponent } from 'src/app/components/details-modal/details-modal.component';
 
 @Component({
   selector: 'app-pets-and-plants',
@@ -22,7 +23,8 @@ export class PetsAndPlantsPage implements OnInit {
 
   constructor(
     private animalService : DatabaseService, 
-    private alertController : AlertController) { }
+    private alertController : AlertController,
+    private modalController : ModalController) { }
 
   ngOnInit() {
     this.getAllItems();
@@ -100,5 +102,15 @@ export class PetsAndPlantsPage implements OnInit {
 
   isAlertChecked(optionValue : number){
     return optionValue == this.filterValue;
+  }
+
+  async openDetails(item : IItem){
+    const modal = await this.modalController.create({
+      component: DetailsModalComponent,
+      componentProps: {
+        selectedItem: item
+      }
+    });
+    modal.present();
   }
 }
