@@ -21,10 +21,7 @@
   <ion-list>
     <ion-item button detail="true" *ngFor="let item of items$ |async">
       <ion-thumbnail slot="start">
-        <img
-          alt="Silhouette of mountains"
-          src="../../../assets/icon/{{item.Image}}"
-        />
+        <img alt="Silhouette of mountains" src="../../../assets/icon/{{item.Image}}" />
       </ion-thumbnail>
       <ion-label>
         <h3>{{item.Title}}</h3>
@@ -32,4 +29,9 @@
       </ion-label>
     </ion-item>
   </ion-list>
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>
