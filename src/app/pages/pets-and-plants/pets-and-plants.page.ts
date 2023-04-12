@@ -2,18 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule, AlertController, ModalController } from '@ionic/angular';
-import { HeaderComponent } from 'src/app/components/header/header.component';
 import { DatabaseService } from 'src/app/services/database.service';
 import { IItem } from 'src/app/interfaces/item';
-import { ItemComponent } from 'src/app/components/item/item.component';
 import { DetailsModalComponent } from 'src/app/components/details-modal/details-modal.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @Component({
   selector: 'app-pets-and-plants',
   templateUrl: './pets-and-plants.page.html',
   styleUrls: ['./pets-and-plants.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule, HeaderComponent, ItemComponent]
+  imports: [IonicModule, CommonModule, FormsModule, SharedModule]
 })
 export class PetsAndPlantsPage implements OnInit {
 

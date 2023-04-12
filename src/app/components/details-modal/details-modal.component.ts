@@ -9,8 +9,6 @@ import { DatabaseService } from 'src/app/services/database.service';
   selector: 'app-details-modal',
   templateUrl: './details-modal.component.html',
   styleUrls: ['./details-modal.component.scss'],
-  standalone: true,
-  imports: [IonicModule, CommonModule]
 })
 export class DetailsModalComponent  implements OnInit {
 
