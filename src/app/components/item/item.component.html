@@ -1,79 +1,9 @@
-<ion-card>
-  <ion-card-header>
-    <ion-card-title>Maddeling</ion-card-title>
-    <ion-card-subtitle>Del din mad med andre</ion-card-subtitle>
-  </ion-card-header>
-  <ion-card-content>
-    <ion-list>
-      <ion-item button detail="true">
-        <ion-thumbnail slot="start">
-          <img
-            alt="Silhouette of mountains"
-            src="../../../assets/icon/vegetable.png"
-          />
-        </ion-thumbnail>
-        <ion-label>
-          <h3>Kartofler, 300g</h3>
-          <p>
-            I have some potatoes that I do not need. If there is someone that
-            wants it just come and get it.
-          </p>
-        </ion-label>
-      </ion-item>
-      <ion-item button detail="true">
-        <ion-thumbnail slot="start">
-          <img
-            alt="Silhouette of mountains"
-            src="../../../assets/icon/bread.png"
-          />
-        </ion-thumbnail>
-        <ion-label>
-          <h3>Rugbrød, 125g</h3>
-          <p maxlength="10">
-            I have a hammer that anybody can use. Just remember so be carefull
-            when using it because.I have a hammer that anybody can use. Just
-            remember so be carefull when using it because.
-          </p>
-        </ion-label>
-      </ion-item>
-      <ion-item button detail="true">
-        <ion-thumbnail slot="start">
-          <img
-            alt="Silhouette of mountains"
-            src="../../../assets/icon/bread.png"
-          />
-        </ion-thumbnail>
-        <ion-label>
-          <h3>Knækbrød, 100g</h3>
-          <p maxlength="10">
-            I have a hammer that anybody can use. Just remember so be carefull
-            when using it because.I have a hammer that anybody can use. Just
-            remember so be carefull when using it because.
-          </p>
-        </ion-label>
-      </ion-item>
-      <ion-item button detail="true">
-        <ion-thumbnail slot="start">
-          <img
-            alt="Silhouette of mountains"
-            src="../../../assets/icon/proteins.png"
-          />
-        </ion-thumbnail>
-        <ion-label>
-          <h3>Pølser, 80g</h3>
-          <p maxlength="10">
-            I have a hammer that anybody can use. Just remember so be carefull
-            when using it because.I have a hammer that anybody can use. Just
-            remember so be carefull when using it because.
-          </p>
-        </ion-label>
-      </ion-item>
-    </ion-list>
-
-    <ion-fab slot="fixed" vertical="bottom" horizontal="end">
-      <ion-fab-button (click)="createItem()">
-        <ion-icon name="add"></ion-icon>
-      </ion-fab-button>
-    </ion-fab>
-  </ion-card-content>
-</ion-card>
+<ion-item button detail="true">
+  <ion-thumbnail slot="start">
+    <img alt="Silhouette of mountains" src="../../../assets/icon/{{item.Image}}" />
+  </ion-thumbnail>
+  <ion-label>
+    <h3>{{item.Title}}</h3>
+    <p>{{item.Description}}</p>
+  </ion-label>
+</ion-item>
