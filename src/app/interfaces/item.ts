@@ -26,9 +26,10 @@ export enum FilterTag {
 /**
  * Options for the Type property of IItem. Describes what kind of item the specific object represents.
  */
+
 export enum Type {
   food = 1,
-  tool = 2,
+  recources = 2,
   service = 3,
-  plantsAndAnimals = "plants-and-animals"
+  plantsAndAnimals = "plants-and-animals",
 }
