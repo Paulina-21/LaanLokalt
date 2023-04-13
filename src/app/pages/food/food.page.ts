@@ -28,12 +28,12 @@ export class FoodPage implements OnInit {
   }
 
   ngOnInit() {
-    //this.items$ = this.itemService.getData().pipe(map((data) => data.items));
+    this.items$ = this.itemService.getData().pipe(map((data) => data.items));
     //this.firebaseService.read_Items().pipe(map((data) => data.items))
-
-    this.firebaseService.read_Items().subscribe((items) => {
-      this.items$ = items;
-    });
+    /*
+        this.firebaseService.read_Items().subscribe((items) => {
+          this.items$ = items;
+        });*/
 
 
 
