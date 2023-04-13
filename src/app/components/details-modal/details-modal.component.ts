@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit, Input } from '@angular/core';
-import { IonicModule, ModalController } from '@ionic/angular';
+import { RouteReuseStrategy } from '@angular/router';
+import { IonicModule, IonicRouteStrategy, ModalController } from '@ionic/angular';
 import { IItem } from 'src/app/interfaces/item';
 import { User } from 'src/app/interfaces/user';
 import { DatabaseService } from 'src/app/services/database.service';
@@ -9,6 +10,7 @@ import { DatabaseService } from 'src/app/services/database.service';
   selector: 'app-details-modal',
   templateUrl: './details-modal.component.html',
   styleUrls: ['./details-modal.component.scss'],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
 })
 export class DetailsModalComponent  implements OnInit {
 

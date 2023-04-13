@@ -22,7 +22,7 @@
     <app-item *ngFor="let item of items$ |async" [item]="item" (click)="openDetails(item)"></app-item>
   </ion-list>
   <ion-fab slot="fixed" vertical="bottom" horizontal="end">
-    <ion-fab-button>
+    <ion-fab-button (click)="openPostForm()">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>
