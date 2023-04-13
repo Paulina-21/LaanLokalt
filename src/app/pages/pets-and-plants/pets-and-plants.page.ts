@@ -6,6 +6,7 @@ import { DatabaseService } from 'src/app/services/database.service';
 import { IItem } from 'src/app/interfaces/item';
 import { DetailsModalComponent } from 'src/app/components/details-modal/details-modal.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { PostFormComponent } from 'src/app/components/post-form/post-form.component';
 
 @Component({
   selector: 'app-pets-and-plants',
@@ -111,5 +112,14 @@ export class PetsAndPlantsPage implements OnInit {
       }
     });
     modal.present();
+  }
+
+  async openPostForm(){
+    const modal = await this.modalController.create({
+      component: PostFormComponent
+    });
+    await modal.present();
+    const { data } = await modal.onDidDismiss();
+    console.log(data);
   }
 }
