@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonicModule, IonicRouteStrategy, ModalController } from '@ionic/angular';
+import {
+  IonicModule,
+  IonicRouteStrategy,
+  ModalController,
+} from '@ionic/angular';
 import { DatabaseService } from './../../services/database.service';
 import { IItem } from 'src/app/interfaces/item';
 import { RouteReuseStrategy } from '@angular/router';
@@ -9,7 +13,6 @@ import { Observable, map } from 'rxjs';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { DetailsModalComponent } from 'src/app/components/details-modal/details-modal.component';
 import { FirebaseService } from '../../services/firebase.service';
-
 
 @Component({
   selector: 'app-food',
@@ -20,10 +23,14 @@ import { FirebaseService } from '../../services/firebase.service';
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
 })
 export class FoodPage implements OnInit {
-  items$: any[];
+  items$: any;
   itemData: IItem;
 
-  constructor(/*private itemService: DatabaseService,*/private firebaseService: FirebaseService, private modalController: ModalController) {
+  constructor(
+    //private itemService: DatabaseService,
+    private firebaseService: FirebaseService,
+    private modalController: ModalController
+  ) {
     this.itemData = {} as IItem;
   }
 
@@ -34,16 +41,14 @@ export class FoodPage implements OnInit {
     this.firebaseService.read_Items().subscribe((items) => {
       this.items$ = items;
     });
-
-
   }
 
   async openDetails(item: IItem) {
     const modal = await this.modalController.create({
       component: DetailsModalComponent,
       componentProps: {
-        selectedItem: item
-      }
+        selectedItem: item,
+      },
     });
     modal.present();
   }
