@@ -6,14 +6,17 @@ import { ItemComponent } from '../components/item/item.component';
 import { HeaderComponent } from '../components/header/header.component';
 import { DetailsModalComponent } from '../components/details-modal/details-modal.component';
 import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import {
+  AngularFirestore,
+  AngularFirestoreModule,
+} from '@angular/fire/compat/firestore';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { FirebaseService } from '../services/firebase.service';
 import { initializeApp } from 'firebase/app';
 import { getDatabase } from 'firebase/database';
-
+import { FirebaseAppModule } from '@angular/fire/app';
 
 // Initialize Firebase app
 const firebaseConfig = environment.firebase;
@@ -30,6 +33,8 @@ export const database = getDatabase(firebaseApp);
     AngularFirestoreModule,
     AngularFireModule.initializeApp(environment.firebase),
   ],
-  exports: [ItemComponent, HeaderComponent, DetailsModalComponent]
+  providers: [FirebaseAppModule, AngularFirestoreModule],
+  bootstrap: [],
+  exports: [ItemComponent, HeaderComponent, DetailsModalComponent],
 })
-export class SharedModule { }
+export class SharedModule {}
