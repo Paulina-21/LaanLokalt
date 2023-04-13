@@ -2,8 +2,10 @@ import { Injectable } from '@angular/core';
 //import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Firestore, collectionData, collection, getDocs } from '@angular/fire/firestore';
+import { Firestore, collectionData, collection, getDocs, setDoc, doc } from '@angular/fire/firestore';
 import { IItem } from '../interfaces/item';
+import { DatabaseService } from './database.service';
+import itemJson from '../../assets/data/items.json';
 
 
 @Injectable({
@@ -12,21 +14,49 @@ import { IItem } from '../interfaces/item';
 export class FirebaseService {
   collectionName = 'Items';
 
-  constructor(private firestore: Firestore) { 
+  count : number = 0;
+
+  constructor(private firestore: Firestore, private dbService : DatabaseService) { 
     this.getItems();
+    
+    
   }
 
   async getItems() {
-    
-    // const itemCollection = collection(this.firestore, this.collectionName);
-    
-    // getDocs(itemCollection)
     
     const querySnapshot = await getDocs(collection(this.firestore, "Items"))
     .then(response=>response.forEach(doc=>{
       console.log(doc.data())
     }));
   }
+
+  // async seedData() {
+  //   if(this.count == 0){
+      
+  //     let items : IItem[];
+      
+  //     await this.dbService.getData().toPromise().then(
+  //       data=>{
+  //         items = data.items;}
+  //     )
+
+  //     const itemsRef = collection(this.firestore, "Items");
+
+  //     for (const item of items) {
+  //       await setDoc(doc(itemsRef), {
+  //         ItemId: item.ItemId,
+  //         Title: item.Title,
+  //         Description: item.Description,
+  //         Image: item.Image,
+  //         CreatedDate: item.CreatedDate,
+  //         Type: item.Type,
+  //         FilterTag: item.FilterTag,
+  //         Address: item.Address,
+  //         UserId: item.UserId,
+  //         Price: item.Price
+  //       })
+  //     }
+  // }}
 
   // read_Items(): Observable<any[]> {
   //   return this.firestore.collection(this.collectionName).snapshotChanges();
