@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Create Post</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="onCancel()">
+        <ion-icon name="close-outline" size="large"></ion-icon>
+        Close
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="height: 75%">
+  <ion-card>
+    <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
+      <ion-item>
+          <ion-label position="floating">Title</ion-label>
+          <ion-input type="text" formControlName="title"></ion-input>
+      </ion-item>
+      <div class="error-message" *ngIf="postForm.get('title').invalid && postForm.get('title').touched">
+        Title is required
+      </div>
+
+      <ion-item>
+          <ion-label position="floating">Description</ion-label>
+          <ion-input type="text" formControlName="description"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Category</ion-label>
+        <ion-select formControlName="type">
+            <ion-select-option value="food">Food</ion-select-option>
+            <ion-select-option value="tool">Tools</ion-select-option>
+            <ion-select-option value="service">Plant/Dyrpasning</ion-select-option>
+        </ion-select>
+        </ion-item>
+
+      <ion-item>
+          <ion-label>Are you offering or looking for this?</ion-label>
+          <ion-select formControlName="filterTag">
+              <ion-select-option value="searching">Looking for</ion-select-option>
+              <ion-select-option value="offering">Offering</ion-select-option>
+          </ion-select>
+      </ion-item>
+
+      <ion-item>
+          <ion-label position="floating">Address</ion-label>
+          <ion-input type="text" formControlName="address"></ion-input>
+      </ion-item>
+
+      <ion-item>
+          <ion-label position="floating">Post Nummer</ion-label>
+          <ion-input type="number" formControlName="postNummer"></ion-input>
+      </ion-item>
+
+      <ion-item>
+          <ion-label position="floating">Price</ion-label>
+          <ion-input type="number" formControlName="price"></ion-input>
+      </ion-item>
+      <ion-button type="submit" [disabled]="!postForm.valid">Submit</ion-button>
+    </form>
+  </ion-card>
+</ion-content>
