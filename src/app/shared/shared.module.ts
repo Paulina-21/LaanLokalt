@@ -6,7 +6,7 @@ import { ItemComponent } from '../components/item/item.component';
 import { HeaderComponent } from '../components/header/header.component';
 import { DetailsModalComponent } from '../components/details-modal/details-modal.component';
 import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 import { environment } from 'src/environments/environment';
@@ -28,7 +28,7 @@ export const database = getDatabase(firebaseApp);
     CommonModule,
     IonicModule,
     AngularFirestoreModule,
-    FirebaseService // Mark added
+    AngularFireModule.initializeApp(environment.firebase),
   ],
   exports: [ItemComponent, HeaderComponent, DetailsModalComponent]
 })

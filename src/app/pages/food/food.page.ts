@@ -15,6 +15,8 @@ import { FirebaseService } from '../../services/firebase.service';
   selector: 'app-food',
   templateUrl: 'food.page.html',
   styleUrls: ['food.page.scss'],
+  standalone: true,
+  imports: [IonicModule, CommonModule, SharedModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
 })
 export class FoodPage implements OnInit {
@@ -26,13 +28,13 @@ export class FoodPage implements OnInit {
   }
 
   ngOnInit() {
-    this.items$ = this.itemService.getData().pipe(map((data) => data.items));
+    //this.items$ = this.itemService.getData().pipe(map((data) => data.items));
     //this.firebaseService.read_Items().pipe(map((data) => data.items))
-    /*
-        this.firebaseService.read_Items().subscribe((items) => {
-          this.items$ = items;
-        });
-        */
+
+    this.firebaseService.read_Items().subscribe((items) => {
+      this.items$ = items;
+    });
+
 
 
   }
