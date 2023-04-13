@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
+import { FirebaseService } from 'src/app/services/firebase.service';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 @Component({
@@ -10,5 +11,5 @@ import { SharedModule } from 'src/app/shared/shared.module';
   imports: [IonicModule, SharedModule],
 })
 export class HomePage {
-  constructor() { }
+  constructor(private fbServise : FirebaseService) { }
 }
