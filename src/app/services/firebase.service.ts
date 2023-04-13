@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { database } from '../shared/shared.module'
 
 @Injectable({
   providedIn: 'root',
@@ -7,9 +10,10 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 export class FirebaseService {
   collectionName = 'Items';
 
-  constructor(private firestore: AngularFirestore) {}
+  constructor(private firestore: AngularFirestore) { }
 
-  read_Items() {
+
+  read_Items(): Observable<any[]> {
     return this.firestore.collection(this.collectionName).snapshotChanges();
   }
 
