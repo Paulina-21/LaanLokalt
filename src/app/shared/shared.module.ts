@@ -27,12 +27,7 @@ export const database = getDatabase(firebaseApp);
 
 @NgModule({
   declarations: [ItemComponent, HeaderComponent, DetailsModalComponent],
-  imports: [
-    CommonModule,
-    IonicModule,
-    AngularFirestoreModule,
-    AngularFireModule.initializeApp(environment.firebase),
-  ],
+  imports: [CommonModule, IonicModule],
   providers: [FirebaseAppModule, AngularFirestoreModule],
   bootstrap: [],
   exports: [ItemComponent, HeaderComponent, DetailsModalComponent],
