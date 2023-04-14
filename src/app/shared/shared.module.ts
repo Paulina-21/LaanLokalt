@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IonicModule } from '@ionic/angular';
+
+import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { ItemComponent } from '../components/item/item.component';
 import { HeaderComponent } from '../components/header/header.component';
 import { DetailsModalComponent } from '../components/details-modal/details-modal.component';
