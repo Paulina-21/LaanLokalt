@@ -22,10 +22,10 @@ import { PostFormComponent } from 'src/app/components/post-form/post-form.compon
 export class ResourcesPage implements OnInit {
   items$: Observable<any>;
 
-  constructor(private itemservice: DatabaseService, private modalcontroller :  ModalController)  {}
+  constructor(private itemService: DatabaseService, private modalController :  ModalController)  {}
 
   ngOnInit() {
-    this.items$= this.itemservice.getData().pipe(map((data) => data.items));
+    this.items$= this.itemService.getData().pipe(map((data) => data.items));
   }
 
   async openPostForm(){
@@ -38,7 +38,7 @@ export class ResourcesPage implements OnInit {
   }
   
   async openDetails(item : IItem){
-    const modal = await this.modalcontroller.create({
+    const modal = await this.modalController.create({
       component: DetailsModalComponent,
       componentProps: {
         selectedItem: item

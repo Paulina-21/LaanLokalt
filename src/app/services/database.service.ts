@@ -55,7 +55,7 @@ export class DatabaseService {
         return response.items;
       }),
       map((items: IItem[]) =>
-      items.filter((item) => item.Type == Type.recources)
+      items.filter((item) => item.Type == Type.resources)
       )
     );
 
