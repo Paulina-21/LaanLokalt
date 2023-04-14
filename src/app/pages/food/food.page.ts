@@ -21,9 +21,11 @@ import { PostFormComponent } from 'src/app/components/post-form/post-form.compon
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
 })
 export class FoodPage implements OnInit {
-  items$: IItem[];
+  foodItems: IItem[];
   itemData: IItem;
   filterValue : number = 0;
+  userId : number = 2;
+  viewItems : IItem[];
 
   constructor(
     private firebaseService: FirebaseService, 
@@ -34,13 +36,23 @@ export class FoodPage implements OnInit {
   }
 
   async ngOnInit() {
-    this.getAllItems();
+    await this.firebaseService.getFoodItems().then(data => {
+      this.foodItems = data;
+    })
+    this.filterItems();
   }
 
-  async getAllItems(){
-    await this.firebaseService.getFoodItems().then(data => {
-      this.items$ = data;
-    })
+  filterItems() {
+    this.viewItems = this.foodItems.filter(item => {
+      if(this.filterValue == 0){
+        return item;
+      }      
+      else if (this.filterValue == 3){
+        return item.UserId == this.userId;
+      } else {
+        return item.FilterTag == this.filterValue;
+      }}
+    );     
   }
 
   async showFilterOptions() {
@@ -89,7 +101,7 @@ export class FoodPage implements OnInit {
           role: 'confirm',
           handler: (value) => {
             this.filterValue = value;
-            this.getAllItems();            
+            this.filterItems();            
           }
         }
       ]

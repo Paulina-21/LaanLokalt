@@ -10,7 +10,7 @@
   </ion-toolbar>
 
   <ion-list>
-    <app-item *ngFor="let resource of resources" [item]="resource" (click)="openDetails(resource)"></app-item>
+    <app-item *ngFor="let resource of viewItems" [item]="resource" (click)="openDetails(resource)"></app-item>
   </ion-list>
   <ion-fab slot="fixed" vertical="bottom" horizontal="end">
     <ion-fab-button (click)="openPostForm()">
