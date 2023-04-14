@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule, AlertController, ModalController } from '@ionic/angular';
-import { DatabaseService } from 'src/app/services/database.service';
 import { IItem } from 'src/app/interfaces/item';
 import { DetailsModalComponent } from 'src/app/components/details-modal/details-modal.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { PostFormComponent } from 'src/app/components/post-form/post-form.component';
+import { FirebaseService } from 'src/app/services/firebase.service';
 
 @Component({
   selector: 'app-pets-and-plants',
@@ -22,7 +22,7 @@ export class PetsAndPlantsPage implements OnInit {
   userId : number = 2; // should be retrieved from a service
 
   constructor(
-    private animalService : DatabaseService, 
+    private dbService : FirebaseService, 
     private alertController : AlertController,
     private modalController : ModalController) { }
 
@@ -30,22 +30,13 @@ export class PetsAndPlantsPage implements OnInit {
     this.getAllItems();
   }
 
-  getAllItems(){
-    this.animalService.getPlantsAndAnimals().subscribe(
-      data=>{
-        this.plantsAndAnimals = data.filter(item => {
-          if (this.filterValue == 3){
-            return item.UserId == this.userId;
-          } else {
-            return this.filterValue == 0 || 
-              item.FilterTag == this.filterValue
-          }}
-        );        
-      } 
-    );
+  async getAllItems(){
+    await this.dbService.getPlantsAndAnimalsItems().then(data=>{
+      this.plantsAndAnimals = data;
+    })
   } 
 
-  async presentAlert() {
+  async showFilterOptions() {
     const alert = await this.alertController.create({
       header: 'Filter',
       inputs: [

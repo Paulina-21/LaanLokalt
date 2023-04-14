@@ -28,18 +28,18 @@
 
       <ion-item>
         <ion-label>Category</ion-label>
-        <ion-select formControlName="type">
-            <ion-select-option value="1">Food</ion-select-option>
-            <ion-select-option value="2">Tools</ion-select-option>
-            <ion-select-option value="3">Plant/Dyrpasning</ion-select-option>
+        <ion-select formControlName="type" type="number"> 
+            <ion-select-option [value]="1" >Food</ion-select-option>
+            <ion-select-option [value]="2"> Tools</ion-select-option>
+            <ion-select-option [value]="3" >Plant/Dyrpasning</ion-select-option>
         </ion-select>
         </ion-item>
 
       <ion-item>
           <ion-label>Are you offering or looking for this?</ion-label>
           <ion-select formControlName="filterTag">
-              <ion-select-option value="2">Looking for</ion-select-option>
-              <ion-select-option value="1">Offering</ion-select-option>
+              <ion-select-option [value]="2" >Looking for</ion-select-option>
+              <ion-select-option [value]="1" >Offering</ion-select-option>
           </ion-select>
       </ion-item>
 
