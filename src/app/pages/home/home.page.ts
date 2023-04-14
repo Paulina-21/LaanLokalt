@@ -11,5 +11,5 @@ import { SharedModule } from 'src/app/shared/shared.module';
   imports: [IonicModule, SharedModule],
 })
 export class HomePage {
-  constructor(private fbServise : FirebaseService) { }
+  constructor() { }
 }

@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 //import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { Observable } from 'rxjs';
+import { Observable, pipe } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Firestore, collectionData, collection, getDocs, setDoc, doc } from '@angular/fire/firestore';
-import { IItem } from '../interfaces/item';
+import { Firestore, collectionData, collection, getDocs, setDoc, doc, query, where, DocumentData, QueryFieldFilterConstraint } from '@angular/fire/firestore';
+import { IItem, Type } from '../interfaces/item';
 import { DatabaseService } from './database.service';
 import itemJson from '../../assets/data/items.json';
+
 
 
 @Injectable({
@@ -17,17 +18,52 @@ export class FirebaseService {
   count : number = 0;
 
   constructor(private firestore: Firestore, private dbService : DatabaseService) { 
-    this.getItems();
     
+    this.getFoodItems();
+    //this.getPlantsAndPetsItems();
+    //this.getAllItems();
+    //this.getItems();
     
   }
 
-  async getItems() {
-    
-    const querySnapshot = await getDocs(collection(this.firestore, "Items"))
-    .then(response=>response.forEach(doc=>{
-      console.log(doc.data())
-    }));
+  async getItems(filter : QueryFieldFilterConstraint | null = null) {
+    const itemsRef = collection(this.firestore, this.collectionName);
+    let q = query(itemsRef, filter);
+    return await getDocs(q);
+  }
+
+  async getAllItems(){
+    await this.getItems()
+    .then(response=>
+      response.forEach(doc=>{
+        console.log(doc.data())
+      }))
+  }
+
+  async getFoodItems(){
+    let filter : QueryFieldFilterConstraint = where('Type', '==', Type.food);
+
+    return this.getItems(filter).then(
+      response=>response.docChanges().map(d=>{
+        const i = d.doc.data() as IItem;
+        return i;
+      })
+    );
+  }
+
+  // async getPlantsAndPetsItems(){
+  //   let filter : QueryFieldFilterConstraint = where('Type', '==', Type.plantsAndAnimals);
+
+  //   await this.getItems(filter)
+  //   .then(response=>
+  //     response.forEach(doc=>{
+  //       console.log(doc.data())
+  //     }))
+  // }
+
+  async addItem(newItem : IItem){
+    const itemsRef = collection(this.firestore, this.collectionName);
+    await setDoc(doc(itemsRef), newItem);
   }
 
   // async seedData() {

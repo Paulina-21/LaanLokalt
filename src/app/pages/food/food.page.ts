@@ -20,23 +20,17 @@ import { FirebaseService } from '../../services/firebase.service';
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
 })
 export class FoodPage implements OnInit {
-  items$: Observable<any>;
+  items$: IItem[];
   itemData: IItem;
 
-  constructor(private itemService: DatabaseService/*,private firebaseService: FirebaseService*/, private modalController: ModalController) {
+  constructor(private firebaseService: FirebaseService, private modalController: ModalController) {
     this.itemData = {} as IItem;
   }
 
-  ngOnInit() {
-    this.items$ = this.itemService.getData().pipe(map((data) => data.items));
-    //this.firebaseService.read_Items().pipe(map((data) => data.items))
-    /*
-        this.firebaseService.read_Items().subscribe((items) => {
-          this.items$ = items;
-        });*/
-
-
-
+  async ngOnInit() {
+    await this.firebaseService.getFoodItems().then(data=>{
+      this.items$ = data;
+    })
   }
 
   async openDetails(item: IItem) {
