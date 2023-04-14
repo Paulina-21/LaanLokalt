@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Output, NgModule} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
-import { FilterTag} from 'src/app/interfaces/item';
+import { FilterTag, IItem} from 'src/app/interfaces/item';
 import {SharedModule} from 'src/app/shared/shared.module';
 import { CommonModule } from '@angular/common';
 
@@ -16,7 +16,11 @@ export class PostFormComponent{
 
   postForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private modalController: ModalController) {
+  constructor(
+    private formBuilder: FormBuilder, 
+    private modalController: ModalController
+    // private db: AngularFireDatabase
+    ) {
     this.postForm = this.formBuilder.group({
       title: ['', Validators.required],
       description: ['', Validators.required],
@@ -29,17 +33,27 @@ export class PostFormComponent{
   }
 
   onSubmit() {
-    console.log("clicked");
-    console.log("form valid: " + this.postForm.valid);
     if (this.postForm.valid) {
-      this.formSubmit.emit(this.postForm.value);
-      this.modalController.dismiss(null, 'cancel');
-      console.log(this.postForm.value);
+      const newPost : IItem = {
+        ItemId: new Date().getTime(),
+        Title: this.postForm.value.title,
+        Description: this.postForm.value.description,
+        Image: "https://picsum.photos/200/300",
+        CreatedDate: new Date(),
+        Type: this.postForm.value.type,
+        FilterTag: this.postForm.value.filterTag,
+        Address: this.postForm.value.address,
+        UserId: 1,
+        Price: this.postForm.value.price
+      }
+      //this.db.list('items').push(newPost);
+      // this.formSubmit.emit(this.postForm.value);
+      this.modalController.dismiss(this.postForm.value, 'confirm')
+      console.log(newPost);
     }
   }
 
   onCancel() {
-    console.log("cancel");
     this.modalController.dismiss(null, 'cancel');
   }
 }
