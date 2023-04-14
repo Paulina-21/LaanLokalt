@@ -9,6 +9,7 @@ import { Observable, map } from 'rxjs';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { DetailsModalComponent } from 'src/app/components/details-modal/details-modal.component';
 import { FirebaseService } from '../../services/firebase.service';
+import { PostFormComponent } from 'src/app/components/post-form/post-form.component';
 
 
 @Component({
@@ -41,5 +42,14 @@ export class FoodPage implements OnInit {
       }
     });
     modal.present();
+  }
+
+  async openPostForm(){
+    const modal = await this.modalController.create({
+      component: PostFormComponent
+    });
+    await modal.present();
+    const { data } = await modal.onDidDismiss();
+    console.log(data);
   }
 }

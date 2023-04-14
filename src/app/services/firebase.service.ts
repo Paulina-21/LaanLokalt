@@ -46,7 +46,7 @@ export class FirebaseService {
   }
 
   async getResourceItems(){
-    let filter : QueryFieldFilterConstraint = where('Type', '==', Type.tool);
+    let filter : QueryFieldFilterConstraint = where('Type', '==', Type.resources);
 
     return this.getItems(filter).then(
       response=>response.docChanges().map(d=>{

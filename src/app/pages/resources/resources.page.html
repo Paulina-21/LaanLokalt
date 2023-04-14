@@ -1,54 +1,17 @@
 <app-header pageTitle="Resourcer"></app-header>
 <ion-content>
   <ion-list>
-    <ion-item button detail="true">
-      <ion-thumbnail slot="start">
-        <img alt="Silhouette of mountains" src="../../../assets/icon/handcraft-outline.png" />
-      </ion-thumbnail>
-      <ion-label>
-        <h3>Sy tøj</h3>
-        <p>Masser af sy tøj til over så just come and get it.</p>
-      </ion-label>
-    </ion-item>
+  <app-item *ngFor="let item of items$ |async" [item]="item" (click)="openDetails(item)">
 
-    <ion-item button detail="true">
-      <ion-thumbnail slot="start">
-        <img alt="Silhouette of mountains" src="../../../assets/icon/wheelbarrow-outline.png" />
-      </ion-thumbnail>
-      <ion-label>
-        <h3>Trillebør, ukendt mærke</h3>
-        <p maxlength="10">I have a wheelbarrow that anybody can use. Just remember so be carefull when using it
-          because.I have a wheelbarrow that anybody can use. Just remember so be carefull when using it because.
-        </p>
-      </ion-label>
-    </ion-item>
-    <ion-item button detail="true">
-      <ion-thumbnail slot="start">
-        <img alt="Silhouette of mountains" src="../../../assets/icon/tools-and-utensils-outline.png" />
-      </ion-thumbnail>
-      <ion-label>
-        <h3>Sav, Ryobi</h3>
-        <p maxlength="10">I have a saw that anybody can use. Just remember so be carefull when using it because.I
-          have a saw that anybody can use. Just remember so be carefull when using it because.
-        </p>
-      </ion-label>
-    </ion-item>
-    <ion-item button detail="true">
-      <ion-thumbnail slot="start">
-        <img alt="Silhouette of mountains" src="../../../assets/icon/tools-and-utensils-outline.png" />
-      </ion-thumbnail>
-      <ion-label>
-        <h3>Hammer, Dyson</h3>
-        <p maxlength="10">I have a hammer that anybody can use. Just remember so be carefull when using it because.I
-          have a hammer that anybody can use. Just remember so be carefull when using it because.
-        </p>
-      </ion-label>
-    </ion-item>
-  </ion-list>
+  </app-item>
+
+   
+   
+     </ion-list>
   <ion-icon name='trash' trash style='color:blueviolet'>
   </ion-icon>
   <ion-fab slot="fixed" vertical="bottom" horizontal="end">
-    <ion-fab-button>
+    <ion-fab-button (click)="openPostForm()">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>

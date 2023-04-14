@@ -49,7 +49,21 @@ export class DatabaseService {
     );
   }
 
-  getAllItemsForUser(userId: number) {
+
+  getresources(){
+    return this.http.get<any>(this.url).pipe(
+      map((response) => {
+        return response.items;
+      }),
+      map((items: IItem[]) =>
+      items.filter((item) => item.Type == Type.resources)
+      )
+    );
+
+  }
+
+  getAllItemsForUser(userId : number) {
+
     return this.http.get<any>(this.url)
       .pipe(
         map(response => { return response.items }),
