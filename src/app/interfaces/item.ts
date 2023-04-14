@@ -1,4 +1,5 @@
 /**
+import { PetsAndPlantsPage } from './../pages/pets-and-plants/pets-and-plants.page';
  * Type for all kinds of items listed items, e.g. food, ressource, plant
  */
 export interface IItem {
@@ -29,7 +30,6 @@ export enum FilterTag {
 
 export enum Type {
   food = 1,
-  recources = 2,
-  plantsAndAnimals= 3,
-  
+  resources = 2,
+  plantsAndAnimals = 3
 }
