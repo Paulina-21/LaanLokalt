@@ -4,8 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule, IonicRouteStrategy, ModalController, AlertController } from '@ionic/angular';
 import { RouteReuseStrategy } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
-import {DatabaseService} from '../../services/database.service';
-import { Observable, map } from 'rxjs';
 import {IItem} from 'src/app/interfaces/item';
 import { DetailsModalComponent } from 'src/app/components/details-modal/details-modal.component';
 import { PostFormComponent } from 'src/app/components/post-form/post-form.component';
@@ -23,6 +21,8 @@ import { FirebaseService } from 'src/app/services/firebase.service';
 export class ResourcesPage implements OnInit {
   resources : IItem[] = [];
   filterValue : number = 0;
+  userId: number = 2;
+  viewItems: IItem[];
 
   constructor(
     private itemService: FirebaseService, 
@@ -30,15 +30,26 @@ export class ResourcesPage implements OnInit {
     private alertController: AlertController
   )  {}
 
-  ngOnInit() {
-    this.getAllItems();
-  }
-
-  async getAllItems(){
+  async ngOnInit() {
     await this.itemService.getResourceItems().then(data=>{
       this.resources = data;
     })
-  } 
+    this.filterItems();
+  }
+
+  filterItems() {
+    this.viewItems = this.resources.filter(item => {
+      if(this.filterValue == 0){
+        return item;
+      }      
+      else if (this.filterValue == 3){
+        return item.UserId == this.userId;
+      } else {
+        return item.FilterTag == this.filterValue;
+      }}
+    );     
+  }
+
 
   async showFilterOptions() {
     const alert = await this.alertController.create({
@@ -86,7 +97,7 @@ export class ResourcesPage implements OnInit {
           role: 'confirm',
           handler: (value) => {
             this.filterValue = value;
-            this.getAllItems();            
+            this.filterItems();            
           }
         }
       ]

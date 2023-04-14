@@ -14,7 +14,7 @@
 
   <ion-list>
 
-      <app-item *ngFor="let item of plantsAndAnimals" [item]="item" (click)="openDetails(item)"></app-item>
+      <app-item *ngFor="let item of viewItems" [item]="item" (click)="openDetails(item)"></app-item>
   </ion-list>
 
   <ion-fab slot="fixed" vertical="bottom" horizontal="end">

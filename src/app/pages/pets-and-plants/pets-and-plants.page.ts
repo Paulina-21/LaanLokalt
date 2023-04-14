@@ -20,21 +20,32 @@ export class PetsAndPlantsPage implements OnInit {
   plantsAndAnimals : IItem[] = []
   filterValue : number = 0;
   userId : number = 2; // should be retrieved from a service
+  viewItems: IItem[];
 
   constructor(
     private dbService : FirebaseService, 
     private alertController : AlertController,
     private modalController : ModalController) { }
 
-  ngOnInit() {
-    this.getAllItems();
-  }
-
-  async getAllItems(){
+  async ngOnInit() {
     await this.dbService.getPlantsAndAnimalsItems().then(data=>{
       this.plantsAndAnimals = data;
     })
-  } 
+    this.filterItems();
+  }
+
+  filterItems() {
+    this.viewItems = this.plantsAndAnimals.filter(item => {
+      if(this.filterValue == 0){
+        return item;
+      }      
+      else if (this.filterValue == 3){
+        return item.UserId == this.userId;
+      } else {
+        return item.FilterTag == this.filterValue;
+      }}
+    );     
+  }
 
   async showFilterOptions() {
     const alert = await this.alertController.create({
@@ -82,7 +93,7 @@ export class PetsAndPlantsPage implements OnInit {
           role: 'confirm',
           handler: (value) => {
             this.filterValue = value;
-            this.getAllItems();            
+            this.filterItems();            
           }
         }
       ]
