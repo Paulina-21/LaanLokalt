@@ -1,11 +1,6 @@
 import { Injectable } from '@angular/core';
-//import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { Observable, pipe } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { Firestore, collectionData, collection, getDocs, setDoc, doc, query, where, DocumentData, QueryFieldFilterConstraint } from '@angular/fire/firestore';
 import { IItem, Type } from '../interfaces/item';
-import { DatabaseService } from './database.service';
-import itemJson from '../../assets/data/items.json';
 
 
 @Injectable({
@@ -16,55 +11,34 @@ export class FirebaseService {
 
   count : number = 0;
 
-  constructor(private firestore: Firestore, private dbService : DatabaseService) { 
-    this.getFoodItems();
+  constructor(private firestore: Firestore) { 
   }
 
   async getItems(filter : QueryFieldFilterConstraint | null = null) {
     const itemsRef = collection(this.firestore, this.collectionName);
     let q = query(itemsRef, filter);
-    return await getDocs(q);
-  }
 
-  async getAllItems(){
-    await this.getItems()
-    .then(response=>
-      response.forEach(doc=>{
-        console.log(doc.data())
-      }))
+    return await getDocs(q).then(
+      response=>response.docChanges().map(d=>{
+        const i = d.doc.data() as IItem;
+        return i;
+      })
+    );
   }
 
   async getFoodItems(){
     let filter : QueryFieldFilterConstraint = where('Type', '==', Type.food);
-
-    return this.getItems(filter).then(
-      response=>response.docChanges().map(d=>{
-        const i = d.doc.data() as IItem;
-        return i;
-      })
-    );
+    return this.getItems(filter);
   }
 
   async getResourceItems(){
     let filter : QueryFieldFilterConstraint = where('Type', '==', Type.resources);
-
-    return this.getItems(filter).then(
-      response=>response.docChanges().map(d=>{
-        const i = d.doc.data() as IItem;
-        return i;
-      })
-    );
+    return this.getItems(filter);
   }
 
   async getPlantsAndAnimalsItems(){
     let filter : QueryFieldFilterConstraint = where('Type', '==', Type.plantsAndAnimals);
-
-    return this.getItems(filter).then(
-      response=>response.docChanges().map(d=>{
-        const i = d.doc.data() as IItem;
-        return i;
-      })
-    );
+    return this.getItems(filter);
   }
 
   async addItem(newItem : IItem){

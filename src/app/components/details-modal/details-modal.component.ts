@@ -43,4 +43,15 @@ export class DetailsModalComponent  implements OnInit {
   closeModal(){
     return this.modalCtrl.dismiss(null, 'cancel');
   }
+
+  async openDetails(item : IItem){
+    const modal = await this.modalCtrl.create({
+      component: DetailsModalComponent,
+      componentProps: {
+        selectedItem: item
+      }
+    });
+    modal.present();
+    this.closeModal();
+  }
 }

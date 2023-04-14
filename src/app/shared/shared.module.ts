@@ -10,17 +10,17 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    ItemComponent, 
-    HeaderComponent, 
+    ItemComponent,
+    HeaderComponent,
     DetailsModalComponent,
     PostFormComponent
   ],
   imports: [
     CommonModule, IonicModule.forRoot(), IonicModule, ReactiveFormsModule
   ],
-  exports: [ 
-    ItemComponent, 
-    HeaderComponent, 
+  exports: [
+    ItemComponent,
+    HeaderComponent,
     DetailsModalComponent,
     PostFormComponent]
 })

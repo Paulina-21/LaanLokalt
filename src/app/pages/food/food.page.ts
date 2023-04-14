@@ -17,7 +17,7 @@ import { PostFormComponent } from 'src/app/components/post-form/post-form.compon
   templateUrl: 'food.page.html',
   styleUrls: ['food.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, SharedModule],
+  imports: [IonicModule, CommonModule, FormsModule, SharedModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
 })
 export class FoodPage implements OnInit {
@@ -38,7 +38,7 @@ export class FoodPage implements OnInit {
   }
 
   async getAllItems(){
-    await this.firebaseService.getFoodItems().then(data=>{
+    await this.firebaseService.getFoodItems().then(data => {
       this.items$ = data;
     })
   }
@@ -112,7 +112,7 @@ export class FoodPage implements OnInit {
     modal.present();
   }
 
-  async openPostForm(){
+  async openPostForm() {
     const modal = await this.modalController.create({
       component: PostFormComponent
     });
