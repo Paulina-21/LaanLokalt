@@ -102,7 +102,7 @@
     <ion-row >
       <ion-col>
 
-        <ion-item id="posting-item" button detail="true" *ngFor="let item of userItems">
+        <ion-item id="posting-item" button detail="true" *ngFor="let item of userItems" (click)="openDetails(item)">
           <ion-thumbnail slot="start">
             <img alt="Image of {{item.Title}}" src="{{item.Image}}" />
           </ion-thumbnail>

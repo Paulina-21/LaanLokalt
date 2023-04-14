@@ -1,11 +1,6 @@
 import { Injectable } from '@angular/core';
-//import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { Observable, pipe } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { Firestore, collectionData, collection, getDocs, setDoc, doc, query, where, DocumentData, QueryFieldFilterConstraint } from '@angular/fire/firestore';
 import { IItem, Type } from '../interfaces/item';
-import { DatabaseService } from './database.service';
-import itemJson from '../../assets/data/items.json';
 
 
 @Injectable({
@@ -16,8 +11,7 @@ export class FirebaseService {
 
   count : number = 0;
 
-  constructor(private firestore: Firestore, private dbService : DatabaseService) { 
-    this.getFoodItems();
+  constructor(private firestore: Firestore) { 
   }
 
   async getItems(filter : QueryFieldFilterConstraint | null = null) {
