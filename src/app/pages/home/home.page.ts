@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
+import { FirebaseService } from 'src/app/services/firebase.service';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 @Component({

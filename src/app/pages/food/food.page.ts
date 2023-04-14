@@ -8,26 +8,33 @@ import { RouteReuseStrategy } from '@angular/router';
 import { Observable, map } from 'rxjs';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { DetailsModalComponent } from 'src/app/components/details-modal/details-modal.component';
+import { FirebaseService } from '../../services/firebase.service';
 import { PostFormComponent } from 'src/app/components/post-form/post-form.component';
+
 
 @Component({
   selector: 'app-food',
   templateUrl: 'food.page.html',
   styleUrls: ['food.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule, SharedModule],
+  imports: [IonicModule, CommonModule, SharedModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
 })
 export class FoodPage implements OnInit {
-  items$: Observable<any>;
+  items$: IItem[];
+  itemData: IItem;
 
-  constructor(private itemService: DatabaseService, private modalController : ModalController) {}
-
-  ngOnInit() {
-    this.items$ = this.itemService.getData().pipe(map((data) => data.items));
+  constructor(private firebaseService: FirebaseService, private modalController: ModalController) {
+    this.itemData = {} as IItem;
   }
 
-  async openDetails(item : IItem){
+  async ngOnInit() {
+    await this.firebaseService.getFoodItems().then(data=>{
+      this.items$ = data;
+    })
+  }
+
+  async openDetails(item: IItem) {
     const modal = await this.modalController.create({
       component: DetailsModalComponent,
       componentProps: {

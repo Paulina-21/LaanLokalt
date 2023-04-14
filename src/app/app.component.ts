@@ -22,6 +22,6 @@ export class AppComponent {
     { title: 'Indstillinger', url: '/settings', icon: 'settings' },
     { title: 'Om os', url: '/about', icon: 'information-circle' }
   ];
-  
-  constructor() {}
+
+  constructor() { }
 }

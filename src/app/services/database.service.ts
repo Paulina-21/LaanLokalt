@@ -11,7 +11,7 @@ export class DatabaseService {
   private readonly url = '/assets/data/items.json';
   itemList: IItem[];
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getData(): Observable<any> {
     return this.http.get<any>(this.url);
@@ -49,6 +49,7 @@ export class DatabaseService {
     );
   }
 
+
   getresources(){
     return this.http.get<any>(this.url).pipe(
       map((response) => {
@@ -62,10 +63,11 @@ export class DatabaseService {
   }
 
   getAllItemsForUser(userId : number) {
+
     return this.http.get<any>(this.url)
       .pipe(
-        map(response=>{return response.items}),
-        map((items : IItem[])=>items.filter(item=>item.UserId == userId))
+        map(response => { return response.items }),
+        map((items: IItem[]) => items.filter(item => item.UserId == userId))
       )
   }
 }
