@@ -8,7 +8,6 @@ import { DatabaseService } from './database.service';
 import itemJson from '../../assets/data/items.json';
 
 
-
 @Injectable({
   providedIn: 'root',
 })
@@ -18,12 +17,7 @@ export class FirebaseService {
   count : number = 0;
 
   constructor(private firestore: Firestore, private dbService : DatabaseService) { 
-    
     this.getFoodItems();
-    //this.getPlantsAndPetsItems();
-    //this.getAllItems();
-    //this.getItems();
-    
   }
 
   async getItems(filter : QueryFieldFilterConstraint | null = null) {
@@ -51,48 +45,32 @@ export class FirebaseService {
     );
   }
 
-  // async getPlantsAndPetsItems(){
-  //   let filter : QueryFieldFilterConstraint = where('Type', '==', Type.plantsAndAnimals);
+  async getResourceItems(){
+    let filter : QueryFieldFilterConstraint = where('Type', '==', Type.tool);
 
-  //   await this.getItems(filter)
-  //   .then(response=>
-  //     response.forEach(doc=>{
-  //       console.log(doc.data())
-  //     }))
-  // }
+    return this.getItems(filter).then(
+      response=>response.docChanges().map(d=>{
+        const i = d.doc.data() as IItem;
+        return i;
+      })
+    );
+  }
+
+  async getPlantsAndAnimalsItems(){
+    let filter : QueryFieldFilterConstraint = where('Type', '==', Type.plantsAndAnimals);
+
+    return this.getItems(filter).then(
+      response=>response.docChanges().map(d=>{
+        const i = d.doc.data() as IItem;
+        return i;
+      })
+    );
+  }
 
   async addItem(newItem : IItem){
     const itemsRef = collection(this.firestore, this.collectionName);
     await setDoc(doc(itemsRef), newItem);
   }
-
-  // async seedData() {
-  //   if(this.count == 0){
-      
-  //     let items : IItem[];
-      
-  //     await this.dbService.getData().toPromise().then(
-  //       data=>{
-  //         items = data.items;}
-  //     )
-
-  //     const itemsRef = collection(this.firestore, "Items");
-
-  //     for (const item of items) {
-  //       await setDoc(doc(itemsRef), {
-  //         ItemId: item.ItemId,
-  //         Title: item.Title,
-  //         Description: item.Description,
-  //         Image: item.Image,
-  //         CreatedDate: item.CreatedDate,
-  //         Type: item.Type,
-  //         FilterTag: item.FilterTag,
-  //         Address: item.Address,
-  //         UserId: item.UserId,
-  //         Price: item.Price
-  //       })
-  //     }
-  // }}
 
   // read_Items(): Observable<any[]> {
   //   return this.firestore.collection(this.collectionName).snapshotChanges();
