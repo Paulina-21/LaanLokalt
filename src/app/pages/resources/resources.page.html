@@ -1,15 +1,17 @@
 <app-header pageTitle="Resourcer"></app-header>
 <ion-content>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button size="small" (click)="showFilterOptions()">
+        Filter
+        <ion-icon slot="end" name="filter-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+
   <ion-list>
-  <app-item *ngFor="let item of items$ |async" [item]="item" (click)="openDetails(item)">
-
-  </app-item>
-
-   
-   
-     </ion-list>
-  <ion-icon name='trash' trash style='color:blueviolet'>
-  </ion-icon>
+    <app-item *ngFor="let resource of resources" [item]="resource" (click)="openDetails(resource)"></app-item>
+  </ion-list>
   <ion-fab slot="fixed" vertical="bottom" horizontal="end">
     <ion-fab-button (click)="openPostForm()">
       <ion-icon name="add"></ion-icon>

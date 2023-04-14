@@ -4,6 +4,7 @@ import { ModalController } from '@ionic/angular';
 import { FilterTag, IItem} from 'src/app/interfaces/item';
 import {SharedModule} from 'src/app/shared/shared.module';
 import { CommonModule } from '@angular/common';
+import { FirebaseService } from 'src/app/services/firebase.service';
 
 @Component({
   selector: 'app-post-form',
@@ -18,8 +19,8 @@ export class PostFormComponent{
 
   constructor(
     private formBuilder: FormBuilder, 
-    private modalController: ModalController
-    // private db: AngularFireDatabase
+    private modalController: ModalController,
+    private db: FirebaseService
     ) {
     this.postForm = this.formBuilder.group({
       title: ['', Validators.required],
@@ -28,7 +29,7 @@ export class PostFormComponent{
       filterTag: [FilterTag.offered, Validators.required], //offered, wanted
       address: ['', [Validators.required, Validators.minLength(6)]],
       postNummer: ['', [Validators.required, Validators.min(1000), Validators.max(9999)]],
-      price: [''],
+      price: [0],
     });
   }
 
@@ -40,14 +41,13 @@ export class PostFormComponent{
         Description: this.postForm.value.description,
         Image: "https://picsum.photos/200/300",
         CreatedDate: new Date(),
-        Type: this.postForm.value.type,
-        FilterTag: this.postForm.value.filterTag,
+        Type: this.postForm.value.type as number,
+        FilterTag: this.postForm.value.filterTag as number,
         Address: this.postForm.value.address,
         UserId: 1,
-        Price: this.postForm.value.price
+        Price: this.postForm.value.price as number
       }
-      //this.db.list('items').push(newPost);
-      // this.formSubmit.emit(this.postForm.value);
+      this.db.addItem(newPost);
       this.modalController.dismiss(this.postForm.value, 'confirm')
       console.log(newPost);
     }

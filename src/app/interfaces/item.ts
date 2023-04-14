@@ -20,8 +20,7 @@ export interface IItem {
  */
 export enum FilterTag {
   offered = 1,
-  wanted = 2,
-
+  wanted = 2
 }
 
 /**
