@@ -2,13 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule, IonicRouteStrategy, ModalController } from '@ionic/angular';
+import { RouteReuseStrategy } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
 import {DatabaseService} from '../../services/database.service';
 import { Observable, map } from 'rxjs';
 import {IItem} from 'src/app/interfaces/item';
-import { RouteReuseStrategy } from '@angular/router';
 import { DetailsModalComponent } from 'src/app/components/details-modal/details-modal.component';
-
+import { PostFormComponent } from 'src/app/components/post-form/post-form.component';
 
 @Component({
   selector: 'app-resources',
@@ -22,14 +22,23 @@ import { DetailsModalComponent } from 'src/app/components/details-modal/details-
 export class ResourcesPage implements OnInit {
   items$: Observable<any>;
 
-  constructor(private itemservice: DatabaseService, private modalcontroller :  ModalController)  {}
+  constructor(private itemService: DatabaseService, private modalController :  ModalController)  {}
 
   ngOnInit() {
-    this.items$= this.itemservice.getData().pipe(map((data) => data.items));
+    this.items$= this.itemService.getData().pipe(map((data) => data.items));
   }
 
+  async openPostForm(){
+    const modal = await this.modalController.create({
+      component: PostFormComponent
+    });
+    await modal.present();
+    const { data } = await modal.onDidDismiss();
+    console.log(data);
+  }
+  
   async openDetails(item : IItem){
-    const modal = await this.modalcontroller.create({
+    const modal = await this.modalController.create({
       component: DetailsModalComponent,
       componentProps: {
         selectedItem: item
@@ -38,6 +47,4 @@ export class ResourcesPage implements OnInit {
     modal.present();
   }
 
-
-  
 }
