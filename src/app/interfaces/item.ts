@@ -20,7 +20,7 @@ export interface IItem {
 export enum FilterTag {
   offered = 1,
   wanted = 2,
-  myPosts = 3
+
 }
 
 /**
@@ -30,6 +30,6 @@ export enum FilterTag {
 export enum Type {
   food = 1,
   recources = 2,
-  service = 3,
-  plantsAndAnimals = "plants-and-animals",
+  plantsAndAnimals= 3,
+  
 }
