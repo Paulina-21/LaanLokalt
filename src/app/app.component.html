@@ -1,6 +1,5 @@
 <ion-app>
   <ion-split-pane contentId="main-content">
-
     <ion-menu contentId="main-content" type="overlay">
       <ion-content scrollY="false">
         <ion-header>
@@ -12,28 +11,43 @@
             </ion-buttons>
           </ion-toolbar>
         </ion-header>
-        
+
         <ion-list id="menu-list">
           <ion-list-header>Lån Lokalt</ion-list-header>
           <ion-note>By MaNiPaKi</ion-note>
 
-          <ion-menu-toggle 
-            auto-hide="false" 
-            *ngFor="let p of appPages; let i = index">
-            <ion-item 
-              routerDirection="root" 
-              [routerLink]="[p.url]" 
-              lines="none" 
-              detail="false" 
+          <ion-menu-toggle
+            auto-hide="false"
+            *ngFor="let p of appPages; let i = index"
+          >
+            <ion-item
+              routerDirection="root"
+              [routerLink]="[p.url]"
+              lines="none"
+              detail="false"
               routerLinkActive="selected"
-              [ngClass]="p.title === 'Indstillinger' ? 'divider' : ''">
-              <ion-icon aria-hidden="true" slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
+              [ngClass]="p.title === 'Indstillinger' ? 'divider' : ''"
+            >
+              <ion-icon
+                aria-hidden="true"
+                slot="start"
+                [ios]="p.icon + '-outline'"
+                [md]="p.icon + '-sharp'"
+              ></ion-icon>
               <ion-label>{{ p.title }}</ion-label>
             </ion-item>
           </ion-menu-toggle>
-
         </ion-list>
-        <div id="filler"></div>
+
+        <div id="filler" class="ion-text-center">
+          <img
+            alt=""
+            src="../../../assets/Logo-Kirstine.png"
+            width="150px"
+            height="150px"
+            style="margin-top: 15px"
+          />
+        </div>
       </ion-content>
     </ion-menu>
 
