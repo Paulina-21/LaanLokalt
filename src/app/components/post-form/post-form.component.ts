@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output, NgModule} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ModalController } from '@ionic/angular';
+import { ModalController, ToastController } from '@ionic/angular';
 import { FilterTag, IItem} from 'src/app/interfaces/item';
 import {SharedModule} from 'src/app/shared/shared.module';
 import { CommonModule } from '@angular/common';
@@ -20,7 +20,8 @@ export class PostFormComponent{
   constructor(
     private formBuilder: FormBuilder, 
     private modalController: ModalController,
-    private db: FirebaseService
+    private db: FirebaseService,
+    public toastController: ToastController
     ) {
     this.postForm = this.formBuilder.group({
       title: ['', Validators.required],
@@ -49,6 +50,7 @@ export class PostFormComponent{
       }
       this.db.addItem(newPost);
       this.modalController.dismiss(this.postForm.value, 'confirm')
+      this.presentToast();
       console.log(newPost);
     }
   }
@@ -56,4 +58,14 @@ export class PostFormComponent{
   onCancel() {
     this.modalController.dismiss(null, 'cancel');
   }
+
+  async presentToast() {
+    const toast = await this.toastController.create({
+      message: 'Indlæg oprettet!',
+      duration: 3000, // milliseconds
+      position: 'top' // 'top', 'middle', or 'bottom'
+    });
+    toast.present();
+  }
+  
 }
