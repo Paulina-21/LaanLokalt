@@ -1,60 +1,59 @@
-<app-header pageTitle="Start"></app-header>
+<app-header pageTitle="Start" class="ion-text-center"></app-header>
 
 <ion-content [fullscreen]="true">
   <br />
-  <img
-    alt="Silhouette of mountains"
-    src="../../../assets/Logo-Kirstine.png"
-    style="height: 20%"
-  />
+  <div class="ion-text-center">
+    <img alt="" src="../../../assets/Logo-Kirstine.png" width="45%" height="45%" />
+  </div>
+
 
   <br />
-  <img
-    alt="Silhouette of mountains"
-    src="../../../assets/community help with food resources and help sitting animals - 2.png"
-  />
-
+  <img alt="" src="../../../assets/community help with food resources and help sitting animals - 2.png" />
+  <br /> <br />
   <div>
-    <ion-item>
-      <ion-label>Giv mad væk</ion-label>
+    <ion-item style="margin-right: 16px;" href="food">
+      <ion-label>Stop madspild, giv det videre</ion-label>
       <ion-button slot="end">
         <ion-icon name="fast-food" color="second"></ion-icon>
       </ion-button>
     </ion-item>
 
-    <ion-item>
-      <ion-label>Deling af ressourcer</ion-label>
+    <ion-item style="margin-right: 16px;" href="resources">
+      <ion-label>Lån ressourcer fra hinanden</ion-label>
       <ion-button slot="end">
         <ion-icon name="hammer" color="second"></ion-icon>
       </ion-button>
     </ion-item>
 
-    <ion-item>
-      <ion-label>Pasning af planter & dyr</ion-label>
+    <ion-item style="margin-right: 16px;" href="petsandplants">
+      <ion-label>Hjælp med at passe planter & dyr</ion-label>
       <ion-button slot="end">
         <ion-icon name="leaf" color="second"></ion-icon>
       </ion-button>
     </ion-item>
   </div>
-  <br /><br />
-
-  <div class="ion-align-items-center">
-    <ion-button shape="round" class="ion-align-items-center"
-      >Start hjælpen</ion-button
-    >
+  <br />
+  <div class="ion-text-center">
+    <ion-button shape="round" class="ion-align-items-center .button-one-color">Gør en forskel</ion-button>
   </div>
+
 </ion-content>
 <footer>
-  <ion-chip>
-    <ion-icon name="fast-food" color="second"></ion-icon>
-    <ion-label>Mad</ion-label>
-  </ion-chip>
-  <ion-chip>
-    <ion-icon name="hammer" color="second"></ion-icon>
-    <ion-label>Ressourcer</ion-label>
-  </ion-chip>
-  <ion-chip>
-    <ion-icon name="leaf" color="second"></ion-icon>
-    <ion-label>Pasning</ion-label>
-  </ion-chip>
+  <div class=" ion-text-center">
+    <!-- <ion-chip>
+      <ion-icon name="fast-food" color="second"></ion-icon>
+      <ion-label>Mad</ion-label>
+    </ion-chip>
+    <ion-chip>
+      <ion-icon name="hammer" color="second"></ion-icon>
+      <ion-label>Ressourcer</ion-label>
+    </ion-chip>
+    <ion-chip>
+      <ion-icon name="leaf" color="second"></ion-icon>
+      <ion-label>Pasning</ion-label>
+    </ion-chip> -->
+    <a href="https://www.flaticon.com/authors/freepik" title="Icons"> Icons created by Freepik - Flaticon</a>
+    <br />
+  </div>
+
 </footer>

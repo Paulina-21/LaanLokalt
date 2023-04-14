@@ -1,13 +1,18 @@
-
 ion-chip {
-    --background: #87d361;
-    --color: #ffffff;
+  --background: #57C566;
+  --color: #ffffff;
 }
 
+ion-button {
+  --background: #57C566;
+}
 
-ion-button{
-  --background: #87d361;
+ion-label {
+  --background: #57C566;
 }
-ion-label{
-  --background: #87d361;
+
+.button-one-color {
+  --background: #C557B6;
 }
+
+// --background: #87d361;
