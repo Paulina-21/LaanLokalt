@@ -143,6 +143,30 @@
             "Address": "København, Niels Juels Gade 13",
             "UserId": 1,
             "Price": 0
+        },
+        {
+            "ItemId":13,
+            "Title": "Hammer, Dyson",
+            "Description": "Jeg har en hammer af Dyson som man kan låne.",
+            "Image": "tools-and-utensils.png",
+            "CreatedDate":"2019-10-10T10:10:10.000Z",
+            "Type": 2,
+            "FilterTag":"offering",
+            "Address": "Nykøbing Falster, Solvej 14",
+            "UserID": 3,
+            "Price": 0
+        },
+        {
+            "ItemId":14,
+            "Title": "Sav, Bosch",
+            "Description": "Jeg har en sav af Bosch som man kan låne.",
+            "Image": "tools-and-utensils.png",
+            "CreatedDate":"2019-10-10T10:10:10.000Z",
+            "Type": 2,
+            "FilterTag":"offering",
+            "Address": "Nykøbing Falster, Solvej 14",
+            "UserID": 3,
+            "Price": 0
         }
     ]
 }
