@@ -1,4 +1,4 @@
-<app-header pageTitle="Resourcer"></app-header>
+<app-header pageTitle="Resourcer" class="ion-text-center"></app-header>
 <ion-content>
   <ion-toolbar>
     <ion-buttons slot="end">
@@ -10,7 +10,11 @@
   </ion-toolbar>
 
   <ion-list>
-    <app-item *ngFor="let resource of viewItems" [item]="resource" (click)="openDetails(resource)"></app-item>
+    <app-item
+      *ngFor="let resource of viewItems"
+      [item]="resource"
+      (click)="openDetails(resource)"
+    ></app-item>
   </ion-list>
   <ion-fab slot="fixed" vertical="bottom" horizontal="end">
     <ion-fab-button (click)="openPostForm()">

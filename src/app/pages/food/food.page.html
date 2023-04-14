@@ -1,5 +1,5 @@
-<app-header pageTitle="Mad"></app-header>
-  
+<app-header pageTitle="Mad" class="ion-text-center"></app-header>
+
 <ion-content [fullscreen]="true">
   <ion-toolbar>
     <ion-buttons slot="end">
@@ -11,7 +11,11 @@
   </ion-toolbar>
 
   <ion-list>
-    <app-item *ngFor="let item of viewItems" [item]="item" (click)="openDetails(item)"></app-item>
+    <app-item
+      *ngFor="let item of viewItems"
+      [item]="item"
+      (click)="openDetails(item)"
+    ></app-item>
   </ion-list>
   <ion-fab slot="fixed" vertical="bottom" horizontal="end">
     <ion-fab-button (click)="openPostForm()">
