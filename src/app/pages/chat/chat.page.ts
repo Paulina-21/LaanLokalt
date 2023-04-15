@@ -9,13 +9,50 @@ import { SharedModule } from 'src/app/shared/shared.module';
   templateUrl: './chat.page.html',
   styleUrls: ['./chat.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule, SharedModule]
+  imports: [IonicModule, CommonModule, FormsModule, SharedModule],
 })
-export class ChatPage implements OnInit {
+export class ChatPage {
+  messages: any[] = [
+    {
+      content:
+        'Hej alle, jeg har nogle kartofler som jeg ikke skal bruge. nogen der vil have dem?',
+      fromMe: false,
+      showDetails: true,
+      senderName: 'Hans Hansen',
+      timestamp: new Date(),
+    },
+    {
+      content: 'Hey, jeg kunne godt bruge nogle kartifler!',
+      fromMe: true,
+      showDetails: false,
+      senderName: '',
+      timestamp: new Date(),
+    },
+    {
+      content: 'Fedt, hvornår kan du komme og hente dem?',
+      fromMe: false,
+      showDetails: true,
+      senderName: 'Hans Hansen',
+      timestamp: new Date(),
+    },
+  ];
 
-  constructor() { }
+  newMessage = {
+    content: '',
+    fromMe: true,
+    showDetails: false,
+    senderName: '',
+    timestamp: null,
+  };
 
-  ngOnInit() {
+  constructor() {}
+
+  sendMessage() {
+    const message = {
+      ...this.newMessage,
+      timestamp: new Date(),
+    };
+    this.messages.push(message);
+    this.newMessage.content = '';
   }
-
 }
