@@ -1,20 +1,21 @@
-<app-header pageTitle="Planter og Dyr"></app-header>
+<app-header pageTitle="Planter og Dyr" class="ion-text-center"></app-header>
 
 <ion-content>
-
   <ion-toolbar>
     <ion-buttons slot="end">
       <ion-button size="small" (click)="showFilterOptions()">
         Filter
         <ion-icon slot="end" name="filter-outline"></ion-icon>
       </ion-button>
-      
     </ion-buttons>
   </ion-toolbar>
 
   <ion-list>
-
-      <app-item *ngFor="let item of viewItems" [item]="item" (click)="openDetails(item)"></app-item>
+    <app-item
+      *ngFor="let item of viewItems"
+      [item]="item"
+      (click)="openDetails(item)"
+    ></app-item>
   </ion-list>
 
   <ion-fab slot="fixed" vertical="bottom" horizontal="end">
@@ -22,5 +23,4 @@
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>
-  
 </ion-content>
