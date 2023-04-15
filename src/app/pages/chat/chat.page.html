@@ -1,7 +1,29 @@
 <app-header pageTitle="Chat" class="ion-text-center"></app-header>
-
-<ion-content [fullscreen]="true">
-  <ion-toolbar>
-    <ion-title size="large">Siden er under konstruktion</ion-title>
-  </ion-toolbar>
+<ion-content class="ion-padding">
+  <div class="messages-container">
+    <div class="message" *ngFor="let message of messages">
+      <div class="message-details" *ngIf="message.showDetails">
+        <div class="message-details-name">{{ message.senderName }}</div>
+        <div class="message-details-timestamp">
+          {{ message.timestamp | date: 'shortTime' }}
+        </div>
+      </div>
+      <div class="message-bubble" [class.from-me]="message.fromMe">
+        {{ message.content }}
+      </div>
+    </div>
+    <ion-item style="margin-top: 50px">
+      <ion-input
+        [(ngModel)]="newMessage.content"
+        placeholder="Skriv en besked..."
+        clearInput
+      ></ion-input>
+      <ion-button
+        (click)="sendMessage()"
+        slot="end"
+        [disabled]="!newMessage.content"
+        >Send</ion-button
+      >
+    </ion-item>
+  </div>
 </ion-content>
