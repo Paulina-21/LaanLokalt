@@ -18,8 +18,8 @@ export class AppComponent {
     { title: 'Pasning af Planter og Dyr', url: '/petsandplants', icon: 'leaf' },
     { title: 'Chat', url: '/chat', icon: 'chatbubbles' },
     { title: 'Regler', url: '/rules', icon: 'book' },
-    { title: 'Spørgsmål', url: '/questions', icon: 'help-circle' },
-    { title: 'Indstillinger', url: '/settings', icon: 'settings' },
+    // { title: 'Spørgsmål', url: '/questions', icon: 'help-circle' },
+    // { title: 'Indstillinger', url: '/settings', icon: 'settings' },
     { title: 'Om os', url: '/about', icon: 'information-circle' }
   ];
 

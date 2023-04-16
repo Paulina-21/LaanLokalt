@@ -9,14 +9,13 @@ import { IItem, Type } from '../interfaces/item';
 export class FirebaseService {
   collectionName = 'Items';
 
-  count: number = 0;
-
   constructor(private firestore: Firestore) {
   }
 
   async getItems(filter: QueryFieldFilterConstraint | null = null) {
     const itemsRef = collection(this.firestore, this.collectionName);
     let q = query(itemsRef, filter);
+    console.log((itemsRef));
 
     return await getDocs(q).then(
       response => response.docChanges().map(d => {
