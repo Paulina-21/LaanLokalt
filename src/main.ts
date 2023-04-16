@@ -26,7 +26,7 @@ bootstrapApplication(AppComponent, {
     ),
     importProvidersFrom(
       provideFirestore(() => getFirestore())
-    )
+    ),
   ],
 });
 

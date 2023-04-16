@@ -22,7 +22,7 @@ export class ChatPage {
       timestamp: new Date(),
     },
     {
-      content: 'Hey, jeg kunne godt bruge nogle kartifler!',
+      content: 'Hey, jeg kunne godt bruge nogle kartofler!',
       fromMe: true,
       showDetails: false,
       senderName: '',
@@ -45,7 +45,7 @@ export class ChatPage {
     timestamp: null,
   };
 
-  constructor() {}
+  constructor() { }
 
   sendMessage() {
     const message = {
