@@ -7,7 +7,7 @@
         Close
       </ion-button>
     </ion-buttons>
-    
+
   </ion-toolbar>
 </ion-header>
 
@@ -19,7 +19,7 @@
           <div id="image-wrapper">
             <img [src]="'../../../assets/icon/' + selectedItem.Image">
           </div>
-          
+
           <ion-card-header>
             <ion-card-title>
               {{selectedItem.Title}}
@@ -35,12 +35,10 @@
               <li class="pb">
                 {{selectedItem.Address}}
               </li>
-            </ul>      
+            </ul>
             <div id="button-wrapper">
-              <ion-button>
-                Contact
-              </ion-button>
-            </div> 
+              <ion-button href="chat">Contact</ion-button>
+            </div>
           </ion-card-content>
         </ion-card>
       </ion-col>
@@ -54,42 +52,42 @@
       <ion-col>
         <ion-card>
           <ion-card-content>
-          <ion-grid>
-            <ion-row>
-              <ion-col class="center-column" >
-                
+            <ion-grid>
+              <ion-row>
+                <ion-col class="center-column">
+
                   <img id="user-image" [src]="user.Image">
-                
-              </ion-col>
-            </ion-row>
-            <ion-row>
-              <ion-col class="ion-text-center">
-                <ion-card-title>
-                  {{user.Name}}
-                </ion-card-title>
-              </ion-col>
-            </ion-row>
 
-            <ion-row>
-              <ion-col>
-                Phone:
-              </ion-col>
-              <ion-col>
-                Address:
-              </ion-col>
-            </ion-row>
-            <ion-row>
-              <ion-col>
-                {{user.PhoneNo}}
-              </ion-col>
-              <ion-col>
-                {{user.HomeAddress}}
-              </ion-col>
-            </ion-row>
-            
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col class="ion-text-center">
+                  <ion-card-title>
+                    {{user.Name}}
+                  </ion-card-title>
+                </ion-col>
+              </ion-row>
 
-          </ion-grid>
-        </ion-card-content>
+              <ion-row>
+                <ion-col>
+                  Phone:
+                </ion-col>
+                <ion-col>
+                  Address:
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  {{user.PhoneNo}}
+                </ion-col>
+                <ion-col>
+                  {{user.HomeAddress}}
+                </ion-col>
+              </ion-row>
+
+
+            </ion-grid>
+          </ion-card-content>
         </ion-card>
       </ion-col>
     </ion-row>
@@ -99,7 +97,7 @@
       </ion-col>
     </ion-row>
 
-    <ion-row >
+    <ion-row>
       <ion-col>
 
         <ion-item id="posting-item" button detail="true" *ngFor="let item of userItems" (click)="openDetails(item)">
@@ -115,10 +113,9 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-  
 
-  
-  
+
+
+
 
 </ion-content>
-
