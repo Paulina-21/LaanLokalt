@@ -45,9 +45,12 @@ ion-header {
 
 #image-wrapper {
   margin: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 
   img{
-    border-radius: 50%;
+    max-width: 50%;
   }
 }
 

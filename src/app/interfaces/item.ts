@@ -1,5 +1,4 @@
 /**
-import { PetsAndPlantsPage } from './../pages/pets-and-plants/pets-and-plants.page';
  * Type for all kinds of items listed items, e.g. food, ressource, plant
  */
 export interface IItem {
