@@ -1,10 +1,9 @@
-import { CommonModule } from '@angular/common';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouteReuseStrategy } from '@angular/router';
-import { IonicModule, IonicRouteStrategy, ModalController } from '@ionic/angular';
+import { IonicRouteStrategy, ModalController } from '@ionic/angular';
 import { IItem } from 'src/app/interfaces/item';
 import { User } from 'src/app/interfaces/user';
-import { DatabaseService } from 'src/app/services/database.service';
+import { FirebaseService } from 'src/app/services/firebase.service';
 
 @Component({
   selector: 'app-details-modal',
@@ -20,10 +19,10 @@ export class DetailsModalComponent  implements OnInit {
 
   constructor(
     private modalCtrl : ModalController,
-    private dataService : DatabaseService
+    private firebaseService: FirebaseService
     ) { }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.user = {
       Id : 1,
       Name : 'Hans Hansen',
@@ -32,12 +31,9 @@ export class DetailsModalComponent  implements OnInit {
       Image: 'https://i.pravatar.cc/150?u=hanshansen1@hotmail.com'
     }
 
-    this.dataService.getAllItemsForUser(this.user.Id).subscribe(
-      data=>{
-        this.userItems = data;
-        console.log(data)
-      }
-    )
+    await this.firebaseService.getFoodItems().then(data => {
+      this.userItems = data;
+    })
   }
 
   closeModal(){

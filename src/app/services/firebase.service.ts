@@ -41,6 +41,11 @@ export class FirebaseService {
     return this.getItems(filter);
   }
 
+  async getItemsByUserId(userId : number){
+    let filter: QueryFieldFilterConstraint = where('UserId', '==', userId);
+    return this.getItems(filter);
+  }
+
   async addItem(newItem: IItem) {
     const itemsRef = collection(this.firestore, this.collectionName);
     await setDoc(doc(itemsRef), newItem);
