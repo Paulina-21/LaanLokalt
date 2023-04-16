@@ -4,7 +4,7 @@
     <ion-buttons slot="end">
       <ion-button (click)="onCancel()">
         <ion-icon name="close-outline" size="large"></ion-icon>
-        Sluk
+        Luk
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -14,48 +14,48 @@
   <ion-card>
     <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
       <ion-item>
-          <ion-label position="floating">Titel</ion-label>
-          <ion-input type="text" formControlName="title"></ion-input>
+        <ion-label position="floating">Titel</ion-label>
+        <ion-input type="text" formControlName="title"></ion-input>
       </ion-item>
       <div class="error-message" *ngIf="postForm.get('title').invalid && postForm.get('title').touched">
         Angiv en titel
       </div>
 
       <ion-item>
-          <ion-label position="floating">Beskrivelse</ion-label>
-          <ion-input type="text" formControlName="description"></ion-input>
+        <ion-label position="floating">Beskrivelse</ion-label>
+        <ion-input type="text" formControlName="description"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label>Kategori</ion-label>
-        <ion-select formControlName="type" type="number"> 
-            <ion-select-option [value]="1" >Food</ion-select-option>
-            <ion-select-option [value]="2"> Tools</ion-select-option>
-            <ion-select-option [value]="3" >Plant/Dyrpasning</ion-select-option>
+        <ion-select formControlName="type" type="number">
+          <ion-select-option [value]="1">Food</ion-select-option>
+          <ion-select-option [value]="2"> Tools</ion-select-option>
+          <ion-select-option [value]="3">Plant/Dyrpasning</ion-select-option>
         </ion-select>
-        </ion-item>
-
-      <ion-item>
-          <ion-label>Jeg søger / Jeg tilbyder</ion-label>
-          <ion-select formControlName="filterTag">
-              <ion-select-option [value]="2" >Søgning</ion-select-option>
-              <ion-select-option [value]="1" >Tilbud</ion-select-option>
-          </ion-select>
       </ion-item>
 
       <ion-item>
-          <ion-label position="floating">Adresse</ion-label>
-          <ion-input type="text" formControlName="address"></ion-input>
+        <ion-label>Jeg søger / Jeg tilbyder</ion-label>
+        <ion-select formControlName="filterTag">
+          <ion-select-option [value]="2">Søgning</ion-select-option>
+          <ion-select-option [value]="1">Tilbud</ion-select-option>
+        </ion-select>
       </ion-item>
 
       <ion-item>
-          <ion-label position="floating">Post nummer</ion-label>
-          <ion-input type="number" formControlName="postNummer"></ion-input>
+        <ion-label position="floating">Adresse</ion-label>
+        <ion-input type="text" formControlName="address"></ion-input>
       </ion-item>
 
       <ion-item>
-          <ion-label position="floating">Pris</ion-label>
-          <ion-input type="number" formControlName="price"></ion-input>
+        <ion-label position="floating">Post nummer</ion-label>
+        <ion-input type="number" formControlName="postNummer"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Pris</ion-label>
+        <ion-input type="number" formControlName="price"></ion-input>
       </ion-item>
       <ion-button type="submit" [disabled]="!postForm.valid">Gem</ion-button>
     </form>
