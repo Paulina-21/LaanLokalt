@@ -17,7 +17,7 @@
       <ion-col>
         <ion-card>
           <div id="image-wrapper">
-            <img [src]="selectedItem.Image">
+            <img [src]="'../../../assets/icon/' + selectedItem.Image">
           </div>
           
           <ion-card-header>
@@ -104,7 +104,7 @@
 
         <ion-item id="posting-item" button detail="true" *ngFor="let item of userItems" (click)="openDetails(item)">
           <ion-thumbnail slot="start">
-            <img alt="Image of {{item.Title}}" src="{{item.Image}}" />
+            <img alt="Image of {{item.Title}}" src="../../../assets/icon/{{item.Image}}" />
           </ion-thumbnail>
           <ion-label>
             <h3>{{item.Title}}</h3>
