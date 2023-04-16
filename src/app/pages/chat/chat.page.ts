@@ -36,6 +36,34 @@ export class ChatPage {
       senderName: 'Hans Hansen',
       timestamp: new Date(),
     },
+    {
+      content: 'Jeg kan komme på fredag hvis det passer med dig?',
+      fromMe: true,
+      showDetails: false,
+      senderName: '',
+      timestamp: new Date(),
+    },
+    {
+      content: 'Det passer fint omkring middagstid på fredag.',
+      fromMe: false,
+      showDetails: true,
+      senderName: 'Hans Hansen',
+      timestamp: new Date(),
+    },
+    {
+      content: 'Ok',
+      fromMe: true,
+      showDetails: false,
+      senderName: '',
+      timestamp: new Date(),
+    },
+    {
+      content: 'Så ses vi på fredag.',
+      fromMe: true,
+      showDetails: false,
+      senderName: '',
+      timestamp: new Date(),
+    },
   ];
 
   newMessage = {
