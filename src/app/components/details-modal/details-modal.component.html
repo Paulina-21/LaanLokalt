@@ -4,7 +4,7 @@
     <ion-buttons slot="end">
       <ion-button (click)="closeModal()">
         <ion-icon name="close-outline" size="large"></ion-icon>
-        Close
+        Sluk
       </ion-button>
     </ion-buttons>
 
@@ -27,17 +27,21 @@
           </ion-card-header>
           <ion-card-content>
             <ul id="description-list">
-              <li>Description</li>
+              <li>Beskrivelse</li>
               <li class="pb">
                 {{selectedItem.Description}}
               </li>
-              <li>Location</li>
+              <li>Sted</li>
               <li class="pb">
                 {{selectedItem.Address}}
               </li>
             </ul>
             <div id="button-wrapper">
               <ion-button href="chat">Contact</ion-button>
+            </div>
+            <ion-button>
+              Kontakt
+            </ion-button>
             </div>
           </ion-card-content>
         </ion-card>
@@ -85,6 +89,23 @@
                 </ion-col>
               </ion-row>
 
+              <ion-row>
+                <ion-col>
+                  Telefon:
+                </ion-col>
+                <ion-col>
+                  Adresse:
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  {{user.PhoneNo}}
+                </ion-col>
+                <ion-col>
+                  {{user.HomeAddress}}
+                </ion-col>
+              </ion-row>
+
 
             </ion-grid>
           </ion-card-content>
@@ -93,7 +114,7 @@
     </ion-row>
     <ion-row>
       <ion-col class="ion-text-center bold">
-        More from {{user.Name}}
+        Mere om {{user.Name}}
       </ion-col>
     </ion-row>
 
