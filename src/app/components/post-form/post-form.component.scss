@@ -12,6 +12,10 @@ ion-header {
   ion-button {
     --color: var(--ll-light-green);
   }
+
+  ion-title{
+    color: var(--ll-light-green);
+  }
 }
 
 #description-list {
