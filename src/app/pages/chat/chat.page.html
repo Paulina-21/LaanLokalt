@@ -8,13 +8,25 @@
           {{ message.timestamp | date: 'shortTime' }}
         </div>
       </div>
-      <div class="message-bubble" [class.from-me]="message.fromMe">
+      <div
+        class="message-bubble"
+        [ngClass]="{'from-me': message.fromMe, 'from-other': !message.fromMe, 'detailsInfo': message.detailsInfo}"
+      >
         {{ message.content }}
       </div>
     </div>
     <ion-item style="margin-top: 50px">
-      <ion-input [(ngModel)]="newMessage.content" placeholder="Skriv besked..." clearInput></ion-input>
-      <ion-button (click)="sendMessage()" slot="end" [disabled]="!newMessage.content">Send</ion-button>
+      <ion-input
+        [(ngModel)]="newMessage.content"
+        placeholder="Skriv besked..."
+        clearInput
+      ></ion-input>
+      <ion-button
+        (click)="sendMessage()"
+        slot="end"
+        [disabled]="!newMessage.content"
+        >Send</ion-button
+      >
     </ion-item>
   </div>
 </ion-content>
