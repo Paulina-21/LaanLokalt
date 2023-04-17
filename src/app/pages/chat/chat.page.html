@@ -8,8 +8,9 @@
           {{ message.timestamp | date: 'shortTime' }}
         </div>
       </div>
-      <div class="message-bubble"
-        [ngClass]="{'from-me': message.fromMe, 'from-other': !message.fromMe, 'detailsInfo': message.detailsInfo}">
+      <div class="message-bubble" [ngClass]="{
+        'from-me': message.fromMe, 
+        'from-other': !message.fromMe}">
         {{ message.content }}
       </div>
     </div>

@@ -15,7 +15,17 @@
   margin: 5px 10px;
 }
 
-.message-details {
+.message-details.from-me {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 5px;
+  font-size: 0.8rem;
+  color: gray;
+}
+
+.message-details:not(.from-me) {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -29,6 +39,7 @@
   margin-right: 5px;
   font-weight: bold;
 }
+
 
 .message-bubble {
   padding: 5px 10px;
