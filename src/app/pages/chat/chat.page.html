@@ -1,5 +1,5 @@
 <app-header pageTitle="Chat" class="ion-text-center"></app-header>
-<ion-content class="ion-padding chat-container" #container>
+<ion-content class="ion-padding chat-container" style="height: 100%;" #container>
   <div class="messages-container">
     <div class="message" *ngFor="let message of messages">
       <div class="message-details" *ngIf="message.showDetails">
@@ -8,25 +8,15 @@
           {{ message.timestamp | date: 'shortTime' }}
         </div>
       </div>
-      <div
-        class="message-bubble"
-        [ngClass]="{'from-me': message.fromMe, 'from-other': !message.fromMe, 'detailsInfo': message.detailsInfo}"
-      >
+      <div class="message-bubble"
+        [ngClass]="{'from-me': message.fromMe, 'from-other': !message.fromMe, 'detailsInfo': message.detailsInfo}">
         {{ message.content }}
       </div>
     </div>
     <ion-item style="margin-top: 50px">
-      <ion-input
-        [(ngModel)]="newMessage.content"
-        placeholder="Skriv besked..."
-        clearInput
-      ></ion-input>
-      <ion-button
-        (click)="sendMessage()"
-        slot="end"
-        [disabled]="!newMessage.content"
-        >Send</ion-button
-      >
+      <ion-input aria-label="besked" [(ngModel)]="newMessage.content" placeholder="Skriv besked..."
+        clearInput></ion-input>
+      <ion-button (click)="sendMessage()" slot="end" [disabled]="!newMessage.content">Send</ion-button>
     </ion-item>
   </div>
 </ion-content>
