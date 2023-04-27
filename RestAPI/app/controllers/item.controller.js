@@ -55,7 +55,8 @@ exports.findAllItems = (req, res) => {
  * Path options: food, resouces, petsplants
  */
 exports.getItemsByType = (req, res) => {
-    let type = getItemTypeFromPath(req.path)
+    let type = getItemTypeFromPath(req.path);
+
     Item.findAll({ where: {
         itemType: type
     } })
@@ -181,6 +182,6 @@ function getItemTypeFromPath(path){
         case 'petsplants':
           return 3;
         default:
-            throw new Error(`${type} is not a recognized item type.`);
+            return;
       }
 }
