@@ -8,6 +8,8 @@ module.exports = app => {
     // Retrieve all items
     router.get("/", items.findAllItems);
 
+    // Retrieve all items
+    router.get("/:id", items.findOneItem);
 
     // Delete an item with id
     router.delete("/:id", items.deleteItem);

@@ -49,6 +49,22 @@ exports.findAllItems = (req, res) => {
 
 };
 
+// Find a single item with an id
+exports.findOneItem = (req, res) => {
+    const id = req.params.id;
+
+    Item.findByPk(id)
+        .then(data => {
+            res.send(data);
+        })
+        .catch(err => {
+            res.status(500).send({
+                message: "Error retrieving item with id=" + id
+            });
+        });
+
+};
+
 // Delete an item with the specified id in the request
 exports.deleteItem = (req, res) => {
     const id = req.params.id;
