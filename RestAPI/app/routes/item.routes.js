@@ -17,6 +17,9 @@ module.exports = app => {
     // Delete all items
     router.delete("/", items.deleteAllItems);
 
+    // Update an item
+    router.put("/:id", items.updateItem);
+
     app.use('/api/items', router);
 
 

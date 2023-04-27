@@ -108,3 +108,44 @@ exports.deleteAllItems = (req, res) => {
         });
 
 };
+
+/**
+ * Updates one item by it's id.
+ * Returns the updated item.
+ */
+exports.updateItem = (req, res) => {
+    Item.update({
+        title: req.body.title,
+        description: req.body.description,
+        image: req.body.image,
+        itemType: req.body.type,
+        filterTag: req.body.filterTag,
+        address: req.body.address,
+        userId: req.body.userId,
+        price: req.body.price
+    },
+    {
+        where: {
+            id: req.params.id
+        }
+    })
+    .then(result=> {
+        if(result == 1){
+            Item.findByPk(req.params.id)
+            .then(data=>{
+                res.status(200).send(data);
+              })
+              .catch(error=>{
+                res.status(400).send('Could not get the updated item due to an error. ' + error.message);
+              })
+        }
+        else {
+            res.satus(400).send('An error occurred during update.')
+        }
+    })
+    .catch(error=>{
+        res.status(400).send({
+          message: error.message || "An error occured during update."
+        })
+    })
+}
