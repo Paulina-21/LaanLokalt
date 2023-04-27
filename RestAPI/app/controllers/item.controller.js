@@ -49,6 +49,27 @@ exports.findAllItems = (req, res) => {
 
 };
 
+/**
+ * Get all items of one itemType.
+ * Type is taken from the request path.
+ * Path options: food, resouces, petsplants
+ */
+exports.getItemsByType = (req, res) => {
+    let type = getItemTypeFromPath(req.path)
+    Item.findAll({ where: {
+        itemType: type
+    } })
+        .then(data => {
+            res.send(data);
+        })
+        .catch(err => {
+            res.status(500).send({
+                message:
+                    err.message || "Some error occurred while retrieving items."
+            });
+        });
+};
+
 // Find a single item with an id
 exports.findOneItem = (req, res) => {
     const id = req.params.id;
@@ -148,4 +169,18 @@ exports.updateItem = (req, res) => {
           message: error.message || "An error occured during update."
         })
     })
+}
+
+function getItemTypeFromPath(path){
+    let type = path.split('/').pop();
+    switch(type) {
+        case 'food':
+          return 1;
+        case 'resources':
+          return 2;
+        case 'petsplants':
+          return 3;
+        default:
+            throw new Error(`${type} is not a recognized item type.`);
+      }
 }

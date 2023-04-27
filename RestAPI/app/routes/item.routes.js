@@ -8,7 +8,16 @@ module.exports = app => {
     // Retrieve all items
     router.get("/", items.findAllItems);
 
-    // Retrieve all items
+    // Retrieve all food items
+    router.get("/food", items.getItemsByType);
+
+    // Retrieve all resource items
+    router.get("/resources", items.getItemsByType);
+
+    // Retrieve all pets and plants items
+    router.get("/petsplants", items.getItemsByType);
+
+    // Retrieve item item by id
     router.get("/:id", items.findOneItem);
 
     // Delete an item with id
