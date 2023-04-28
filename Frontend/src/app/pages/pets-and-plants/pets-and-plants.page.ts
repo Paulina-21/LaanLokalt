@@ -6,7 +6,7 @@ import { IItem } from 'src/app/interfaces/item';
 import { DetailsModalComponent } from 'src/app/components/details-modal/details-modal.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { PostFormComponent } from 'src/app/components/post-form/post-form.component';
-import { FirebaseService } from 'src/app/services/firebase.service';
+import { ItemsserviceService } from 'src/app/services/itemsservice.service';
 
 @Component({
   selector: 'app-pets-and-plants',
@@ -23,15 +23,16 @@ export class PetsAndPlantsPage implements OnInit {
   viewItems: IItem[];
 
   constructor(
-    private dbService : FirebaseService, 
+    private itemsService : ItemsserviceService, 
     private alertController : AlertController,
     private modalController : ModalController) { }
 
   async ngOnInit() {
-    await this.dbService.getPlantsAndAnimalsItems().then(data=>{
+    this.itemsService.getPetsAndPlantsItems()
+    .subscribe(data=>{
       this.plantsAndAnimals = data;
-    })
-    this.filterItems();
+      this.filterItems();
+    });
   }
 
   filterItems() {

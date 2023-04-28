@@ -71,6 +71,23 @@ exports.getItemsByType = (req, res) => {
         });
 };
 
+// Find all items by userId
+exports.getItemsByUserId = (req, res) => {
+
+    Item.findAll({ where: {
+        userId: req.params.userId
+    } })
+        .then(data => {
+            res.send(data);
+        })
+        .catch(err => {
+            res.status(500).send({
+                message:
+                    err.message || "Some error occurred while retrieving items."
+            });
+        });
+};
+
 // Find a single item with an id
 exports.findOneItem = (req, res) => {
     const id = req.params.id;
