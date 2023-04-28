@@ -1,0 +1,42 @@
+<app-header pageTitle="Login" class="ion-text-center">Login</app-header>
+
+<ion-content [fullscreen]="true">
+  <img alt="" src="../../../assets/community help with food resources and help sitting animals - 2.png" width="100%"
+    style="margin-bottom: -150px" />
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+        <div class="ion-text-center">
+          <h3>Login på din brugerprofil</h3>
+        </div>
+      </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <form #form="ngForm" (ngSubmit)="login(form)">
+        <ion-grid>
+          <ion-row color="primary" justify-content-center>
+            <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+              <div padding>
+
+                <ion-item>
+                  <ion-input name="email" type="email" placeholder="your@email.com" ngModel required></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-input name="password" type="password" placeholder="Password" ngModel required></ion-input>
+                </ion-item>
+              </div>
+              <div>
+                <br>
+                <ion-button size="large" type="submit" [disabled]="form.invalid" expand="block">Login</ion-button>
+
+                <div class="ion-text-center" style="margin-top: 20px;"><a>Opret brugerprofil</a></div>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
