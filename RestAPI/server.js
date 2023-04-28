@@ -16,6 +16,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 require("./app/routes/item.routes")(app);
+require("./app/routes/user.routes")(app); // added by Mark
 
 const db = require("./app/models");
 
@@ -26,7 +27,7 @@ app.get("/", (req, res) => {
 
 const PORT = process.env.PORT || 8080;
 db.sequelize.sync().then(
-  app.listen(PORT,  ()=> {
+  app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`)
   })
 );

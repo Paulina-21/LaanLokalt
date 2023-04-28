@@ -3,7 +3,7 @@ const Item = db.items;
 const Op = db.Sequelize.Op;
 
 // Create and Save a new item
-exports.create = (req, res) => {
+exports.createItem = (req, res) => {
     // validate request
     if (!req.body.title) {
         res.status(400).send(
@@ -57,9 +57,11 @@ exports.findAllItems = (req, res) => {
 exports.getItemsByType = (req, res) => {
     let type = getItemTypeFromPath(req.path);
 
-    Item.findAll({ where: {
-        itemType: type
-    } })
+    Item.findAll({
+        where: {
+            itemType: type
+        }
+    })
         .then(data => {
             res.send(data);
         })
@@ -91,20 +93,17 @@ exports.findOneItem = (req, res) => {
 exports.deleteItem = (req, res) => {
     const id = req.params.id;
 
-    Item.destroy({
-        where: { id: id }
+    Item.destroy({ where: { id: id } }).then(num => {
+        if (num == 1) {
+            res.send({
+                message: "Item was deleted successfully!"
+            });
+        } else {
+            res.send({
+                message: `Cannot delete item with id=${id}. Maybe Item was not found!`
+            });
+        }
     })
-        .then(num => {
-            if (num == 1) {
-                res.send({
-                    message: "Item was deleted successfully!"
-                });
-            } else {
-                res.send({
-                    message: `Cannot delete item with id=${id}. Maybe Item was not found!`
-                });
-            }
-        })
         .catch(err => {
             res.status(500).send({
                 message: "Could not delete item with id=" + id
@@ -146,42 +145,42 @@ exports.updateItem = (req, res) => {
         userId: req.body.userId,
         price: req.body.price
     },
-    {
-        where: {
-            id: req.params.id
-        }
-    })
-    .then(result=> {
-        if(result == 1){
-            Item.findByPk(req.params.id)
-            .then(data=>{
-                res.status(200).send(data);
-              })
-              .catch(error=>{
-                res.status(400).send('Could not get the updated item due to an error. ' + error.message);
-              })
-        }
-        else {
-            res.satus(400).send('An error occurred during update.')
-        }
-    })
-    .catch(error=>{
-        res.status(400).send({
-          message: error.message || "An error occured during update."
+        {
+            where: {
+                id: req.params.id
+            }
         })
-    })
+        .then(result => {
+            if (result == 1) {
+                Item.findByPk(req.params.id)
+                    .then(data => {
+                        res.status(200).send(data);
+                    })
+                    .catch(error => {
+                        res.status(400).send('Could not get the updated item due to an error. ' + error.message);
+                    })
+            }
+            else {
+                res.satus(400).send('An error occurred during update.')
+            }
+        })
+        .catch(error => {
+            res.status(400).send({
+                message: error.message || "An error occured during update."
+            })
+        })
 }
 
-function getItemTypeFromPath(path){
+function getItemTypeFromPath(path) {
     let type = path.split('/').pop();
-    switch(type) {
+    switch (type) {
         case 'food':
-          return 1;
+            return 1;
         case 'resources':
-          return 2;
+            return 2;
         case 'petsplants':
-          return 3;
+            return 3;
         default:
             return;
-      }
+    }
 }

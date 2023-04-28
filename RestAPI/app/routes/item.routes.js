@@ -3,7 +3,7 @@ module.exports = app => {
     var router = require("express").Router();
 
     // Create a new item
-    router.post("/", items.create);
+    router.post("/", items.createItem);
 
     // Retrieve all items
     router.get("/", items.findAllItems);

@@ -2,7 +2,7 @@ const db = require("../models");
 const User = db.users;
 const Op = db.Sequelize.Op;
 
-exports.use(session({
+/* exports.use(session({
     secret: 'my-secret-key',
     resave: false,
     saveUninitialized: true,
@@ -13,10 +13,10 @@ exports.use(session({
 exports.login = (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
-}
+} */
 
 // Create and Save a new user
-exports.create = (req, res) => {
+exports.createUser = (req, res) => {
     // validate request
     if (!req.body.email) {
         res.status(400).send(
