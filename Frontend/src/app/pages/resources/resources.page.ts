@@ -7,7 +7,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import {IItem} from 'src/app/interfaces/item';
 import { DetailsModalComponent } from 'src/app/components/details-modal/details-modal.component';
 import { PostFormComponent } from 'src/app/components/post-form/post-form.component';
-import { FirebaseService } from 'src/app/services/firebase.service';
+import { ItemsserviceService } from 'src/app/services/itemsservice.service';
 
 @Component({
   selector: 'app-resources',
@@ -25,16 +25,17 @@ export class ResourcesPage implements OnInit {
   viewItems: IItem[];
 
   constructor(
-    private itemService: FirebaseService, 
+    private itemsService: ItemsserviceService, 
     private modalController :  ModalController,
     private alertController: AlertController
   )  {}
 
   async ngOnInit() {
-    await this.itemService.getResourceItems().then(data=>{
+    this.itemsService.getResourceItems()
+    .subscribe(data=>{
       this.resources = data;
-    })
-    this.filterItems();
+      this.filterItems();
+    });
   }
 
   filterItems() {

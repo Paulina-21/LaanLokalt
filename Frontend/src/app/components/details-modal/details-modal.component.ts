@@ -4,7 +4,7 @@ import { RouteReuseStrategy } from '@angular/router';
 import { IonicModule, IonicRouteStrategy, ModalController } from '@ionic/angular';
 import { IItem } from 'src/app/interfaces/item';
 import { User } from 'src/app/interfaces/user';
-import { DatabaseService } from 'src/app/services/database.service';
+import { ItemsserviceService } from 'src/app/services/itemsservice.service';
 
 @Component({
   selector: 'app-details-modal',
@@ -20,7 +20,7 @@ export class DetailsModalComponent  implements OnInit {
 
   constructor(
     private modalCtrl : ModalController,
-    private dataService : DatabaseService
+    private itemsService : ItemsserviceService
     ) { }
 
   ngOnInit() {
@@ -32,12 +32,10 @@ export class DetailsModalComponent  implements OnInit {
       Image: 'https://i.pravatar.cc/150?u=hanshansen1@hotmail.com'
     }
 
-    this.dataService.getAllItemsForUser(this.user.Id).subscribe(
-      data=>{
-        this.userItems = data;
-        console.log(data)
-      }
-    )
+    this.itemsService.getItemsByUserId(this.user.Id)
+    .subscribe(data=>{
+      this.userItems = data;
+    });
   }
 
   closeModal(){

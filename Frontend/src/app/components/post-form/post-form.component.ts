@@ -5,6 +5,7 @@ import { FilterTag, IItem} from 'src/app/interfaces/item';
 import {SharedModule} from 'src/app/shared/shared.module';
 import { CommonModule } from '@angular/common';
 import { FirebaseService } from 'src/app/services/firebase.service';
+import { ItemsserviceService } from 'src/app/services/itemsservice.service';
 
 @Component({
   selector: 'app-post-form',
@@ -21,7 +22,8 @@ export class PostFormComponent{
     private formBuilder: FormBuilder, 
     private modalController: ModalController,
     private db: FirebaseService,
-    public toastController: ToastController
+    public toastController: ToastController,
+    private itemsService : ItemsserviceService
     ) {
     this.postForm = this.formBuilder.group({
       title: ['', Validators.required],
@@ -48,10 +50,16 @@ export class PostFormComponent{
         UserId: 1,
         Price: this.postForm.value.price as number
       }
-      this.db.addItem(newPost);
-      this.modalController.dismiss(this.postForm.value, 'confirm')
-      this.presentToast();
-      console.log(newPost);
+
+      this.itemsService
+        .createNewItem(newPost)
+        .subscribe(i=>{
+          if (i){
+            this.modalController.dismiss(this.postForm.value, 'confirm')
+            this.presentToast();
+            console.log(newPost);
+          }
+        });  
     }
   }
 

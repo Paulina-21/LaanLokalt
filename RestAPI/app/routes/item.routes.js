@@ -29,6 +29,9 @@ module.exports = app => {
     // Update an item
     router.put("/:id", items.updateItem);
 
+    // Retrieve item item by id
+    router.get("/user/:userId", items.getItemsByUserId);
+
     app.use('/api/items', router);
 
 
