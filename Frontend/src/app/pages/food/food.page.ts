@@ -10,6 +10,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { DetailsModalComponent } from 'src/app/components/details-modal/details-modal.component';
 import { FirebaseService } from '../../services/firebase.service';
 import { PostFormComponent } from 'src/app/components/post-form/post-form.component';
+import { ItemsserviceService } from 'src/app/services/itemsservice.service';
 
 
 @Component({
@@ -28,18 +29,19 @@ export class FoodPage implements OnInit {
   viewItems : IItem[];
 
   constructor(
-    private firebaseService: FirebaseService, 
     private modalController: ModalController,
-    private alertController : AlertController
+    private alertController : AlertController,
+    private itemsService : ItemsserviceService
     ) {
     this.itemData = {} as IItem;
   }
 
   async ngOnInit() {
-    await this.firebaseService.getFoodItems().then(data => {
+    this.itemsService.getFoodItems()
+    .subscribe(data=>{
       this.foodItems = data;
-    })
-    this.filterItems();
+      this.filterItems();
+    });
   }
 
   filterItems() {
