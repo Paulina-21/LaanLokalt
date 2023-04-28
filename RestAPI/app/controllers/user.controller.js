@@ -2,18 +2,13 @@ const db = require("../models");
 const User = db.users;
 const Op = db.Sequelize.Op;
 
-/* exports.use(session({
-    secret: 'my-secret-key',
-    resave: false,
-    saveUninitialized: true,
-    cookie: { secure: false }
-}))
+
 
 //login user and create session
 exports.login = (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
-} */
+}
 
 // Create and Save a new user
 exports.createUser = (req, res) => {
