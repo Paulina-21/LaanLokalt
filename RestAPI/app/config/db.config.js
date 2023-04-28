@@ -2,7 +2,7 @@ module.exports = {
   HOST: "localhost",
   PORT: 3306,
   USER: "root",
-  PASSWORD: "",
+  PASSWORD: "Zea-Argo-2023",
   DB: "laanlokaltdb",
   dialect: "mysql",
   pool: {
@@ -12,3 +12,4 @@ module.exports = {
     idle: 10000
   }
 };
+
