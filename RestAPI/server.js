@@ -34,7 +34,7 @@ const db = require("./app/models");
 /* app.get("/", (req, res) => {
   res.json({ message: "Welcome to LaanLokalt api" });
 }); */
-app.get('/some-route', (req, res) => {
+app.get('/', (req, res) => {
   const username = req.session.username;
   res.send(`Session data retrieved: ${username}`);
 });
