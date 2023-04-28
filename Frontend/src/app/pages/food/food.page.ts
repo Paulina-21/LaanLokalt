@@ -2,13 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AlertController, IonicModule, IonicRouteStrategy, ModalController } from '@ionic/angular';
-import { DatabaseService } from './../../services/database.service';
 import { IItem } from 'src/app/interfaces/item';
 import { RouteReuseStrategy } from '@angular/router';
-import { Observable, map } from 'rxjs';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { DetailsModalComponent } from 'src/app/components/details-modal/details-modal.component';
-import { FirebaseService } from '../../services/firebase.service';
 import { PostFormComponent } from 'src/app/components/post-form/post-form.component';
 import { ItemsserviceService } from 'src/app/services/itemsservice.service';
 
