@@ -35,6 +35,36 @@ exports.createUser = (req, res) => {
         });
 }
 
+
+// login user
+/* exports.login = (req, res) => {
+    // validate request
+    if (!req.body.email) {
+        res.status(400).send(
+            { message: "content cannot be empty!" }
+        );
+        return;
+    }
+    if (
+        req.body.email
+    ){
+
+    }
+    // create  an user
+    const user = {
+        email: req.body.email,
+        password: req.body.password,
+        phoneNo: req.body.phoneNo,
+        homeAddress: req.body.homeAddress
+    }
+    User.create(user).then(data => { res.send(data); })
+        .catch(error => {
+            res.status(500).send({
+                message: error.message || "Some error accurred while trying to create an user."
+            });
+        });
+} */
+
 //delete user by id if user is logged in as admin or user is logged in as the user to be deleted
 exports.deleteUser = (req, res) => {
     const id = req.params.id;

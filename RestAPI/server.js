@@ -1,12 +1,14 @@
 const express = require("express");
 const cors = require("cors");
 const session = require('express-session'); // added by Mark
+const bodyParser = require('body-parser');
 
 const app = express();
 
 // var corsOptions = {
 //   origin: "http://localhost:8081"
 // };
+app.use(bodyParser.json()); // added by mark
 
 app.use(cors());
 
