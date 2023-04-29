@@ -74,7 +74,12 @@ export class PostFormComponent {
   returnImage() {
     if (this.postForm.value.image == 1) return 'vegetable-outline.png';
     else if (this.postForm.value.image == 2) return 'fruit-outline.png';
-    else return 'bread-outline.png';
+    else if (this.postForm.value.image == 3) return 'bread-outline.png';
+    else if (this.postForm.value.image == 4)
+      return 'dairy-products-outline.png';
+    else if (this.postForm.value.image == 5) return 'proteins-outline.png';
+    else if (this.postForm.value.image == 6) return 'fish-outline.png';
+    else return '';
   }
 
   onCancel() {
